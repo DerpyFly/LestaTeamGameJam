@@ -44,10 +44,10 @@ public class PlayerAll : MonoBehaviour
     {
         if (_isActiveInput) 
         {
-            CheckUseInteractable();
-
-            if(_currentInteractable == null)
+            if(_currentInteractable == null || (_currentInteractable != null && ((_keyboard.eKey.wasPressedThisFrame && _inventory.ItemName == ItemName.None) || _keyboard.qKey.wasPressedThisFrame)))
                 _inventory.InventoryAction();
+
+            CheckUseInteractable();
         }
     }
     
