@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour
     public int CountPriceItem => _backpack.GetItem.Where(item => item.TypeItem == TypeItem.PriceItem).Count();
 
     public GameObject DropPoint => _dropPoint;
-    public ItemName ItemName => _activeSlot.ItemName;
+    public ItemName ItemName => _activeSlot != null ? _activeSlot.ItemName : ItemName.None;
 
     public event UnityAction<Item> PickUpGarbage;
 
@@ -73,7 +73,7 @@ public class Inventory : MonoBehaviour
                 return;
             }
 
-            if(_visibleItem.TypeItem == TypeItem.PriceItem || (_visibleItem.TypeItem == TypeItem.ActiveItem && _activeSlot != null))
+            if(_visibleItem.TypeItem == TypeItem.PriceItem)
             {
                 if (_backpack.AddItem(_visibleItem))
                     _visibleItem = null;

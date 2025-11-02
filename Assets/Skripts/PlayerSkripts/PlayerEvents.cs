@@ -37,7 +37,7 @@ public class PlayerEvents : MonoBehaviour
 
     public void EnableWindowNotFoundItem(ItemName notFoundItem)
     {
-
+        
     }
 
     public void DisableWindowInteract()

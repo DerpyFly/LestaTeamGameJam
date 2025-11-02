@@ -1,6 +1,6 @@
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(CapsuleCollider))]
 public class Item : MonoBehaviour
 {
     [SerializeField] private TypeItem _typeItem;
@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
     private int _id;
 
     private Rigidbody _rb;
-    private BoxCollider _boxCollider;
+    private CapsuleCollider _collider;
 
     public TypeItem TypeItem => _typeItem;
     public ItemName ItemName => _itemName;
@@ -20,7 +20,7 @@ public class Item : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        _boxCollider = GetComponent<BoxCollider>();
+        _collider = GetComponent<CapsuleCollider>();
     }
 
     private void OnTriggerStay(Collider other)
@@ -42,7 +42,7 @@ public class Item : MonoBehaviour
     public void SetPoint(int id)
     {
         _isFree = false;
-        _boxCollider.enabled = false;
+        _collider.enabled = false;
         _rb.isKinematic = true;
         _rb.constraints = RigidbodyConstraints.FreezePositionY;
         _id = id;
@@ -53,7 +53,7 @@ public class Item : MonoBehaviour
         _isFree = true;
         transform.SetParent(null);
         _rb.isKinematic = false;
-        _boxCollider.enabled = true;
+        _collider.enabled = true;
         _rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
         return _id;
     }
