@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _moveAmt;
     private Vector2 _lookAmt;
 
-    private Rigidbody _rigidbody;
+    [SerializeField] Rigidbody _rigidbody;
 
     private float SwimmingSpeed;
     public float Sensetive = 50;
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
     private void Walking()
     {
-        Vector3 targetVelocity = (transform.forward * _moveAmt.y + transform.right * _moveAmt.x) * SwimmingSpeed;
+        Vector3 targetVelocity = (transform.forward * _moveAmt.x + transform.right * (-_moveAmt.y)) * SwimmingSpeed;
         _currentVelocity = Vector3.Lerp(_currentVelocity, targetVelocity, Time.fixedDeltaTime * decelerationRate);
         _rigidbody.MovePosition(_rigidbody.position + _currentVelocity * Time.fixedDeltaTime);
 
@@ -91,11 +91,11 @@ public class PlayerController : MonoBehaviour
     {
         if (_lookAmt != Vector2.zero)
         {
-            float rotationAmountY = _lookAmt.x * Sensetive * Time.deltaTime;
-            Quaternion deltaRotationY = Quaternion.Euler(0, rotationAmountY, 0);
+            float rotationAmountY = -_lookAmt.y * Sensetive * Time.deltaTime;
+            Quaternion deltaRotationY = Quaternion.Euler(0, 0 , rotationAmountY);
             Quaternion newRotationY = _rigidbody.rotation * deltaRotationY;
-            float rotationAmountX = -_lookAmt.y * Sensetive * Time.deltaTime;
-            Quaternion deltaRotationX = Quaternion.Euler(rotationAmountX, 0, 0);
+            float rotationAmountX = _lookAmt.x * Sensetive * Time.deltaTime;
+            Quaternion deltaRotationX = Quaternion.Euler(0, rotationAmountX, 0);
             _rigidbody.MoveRotation(newRotationY * deltaRotationX);
         }
     }
