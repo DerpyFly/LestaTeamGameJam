@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TrashSystem : MonoBehaviour
 {
     [SerializeField] private Inventory _inventoryAction;
 
     public int CountTrash {  get; private set; }
+
+    public event UnityAction<int> ChangeTrashCount;
 
     private void OnDisable()
     {
@@ -25,5 +28,7 @@ public class TrashSystem : MonoBehaviour
     {
         item.gameObject.SetActive(false);
         CountTrash++;
+
+        ChangeTrashCount?.Invoke(CountTrash);
     }
 }
