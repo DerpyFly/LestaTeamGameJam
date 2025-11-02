@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Backpack : MonoBehaviour
@@ -10,6 +7,7 @@ public class Backpack : MonoBehaviour
     [SerializeField] private float _maxSpeed = 5;
     [SerializeField] private float _minSpeed = 5;
     [SerializeField] private float _force = 500;
+    [SerializeField] private float _deltaY = 0.3f;
     [SerializeField] private float _returnForce = 500;
     [SerializeField] private float _length = 10;
     [SerializeField] private List<GameObject> _points = new();
@@ -18,30 +16,30 @@ public class Backpack : MonoBehaviour
     private Stack<Item> _items = new();
     private List<List<int>> _pointValue = new();
 
-    private Keyboard _keyboard;
     private Rigidbody _rb;
 
     private void Update()
     {
-        transform.LookAt(_player.transform);
+        transform.LookAt(new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z));
     }
 
     private void FixedUpdate()
     {
-        if ((_player.transform.position - transform.position).magnitude > _length && _rb.linearVelocity.magnitude < _maxSpeed)
-            _rb.AddForce((_player.transform.position - transform.position) * _force * Time.deltaTime);
-        else if((_player.transform.position - transform.position).magnitude < _length && _rb.linearVelocity.magnitude > _minSpeed)
+        Vector3 target = new Vector3(_player.transform.position.x, _player.transform.position.y + _deltaY, _player.transform.position.z);
+
+        if ((target - transform.position).magnitude > _length && _rb.linearVelocity.magnitude < _maxSpeed)
+            _rb.AddForce((target - transform.position) * _force * Time.deltaTime);
+        else if ((target - transform.position).magnitude < _length && _rb.linearVelocity.magnitude > _minSpeed)
             _rb.AddForce(-_rb.linearVelocity.normalized * _returnForce * Time.deltaTime);
     }
 
     public void Init(PlayerTest player)
     {
-        _keyboard = Keyboard.current;
         _rb = GetComponent<Rigidbody>();
 
         _player = player;
 
-        foreach(GameObject point in _points)
+        foreach (GameObject point in _points)
             _pointValue.Add(new() { 0 });
     }
 
@@ -60,21 +58,25 @@ public class Backpack : MonoBehaviour
         return true;
     }
 
-    public void DropItem()
+    public Item DropItem()
     {
         if (_items.Count == 0)
-            return;
+            return null;
+
+        Item drop = _items.Peek();
+        _items.Pop();
 
         int dropPoint = _items.Peek().DropPoint();
-        _items.Peek().transform.SetParent(null);
-        _items.Peek().transform.position = _player.DropPoint.transform.position;
+        drop.transform.SetParent(null);
+        drop.transform.position = _player.DropPoint.transform.position;
         _pointValue[dropPoint][0] = 0;
-        _items.Pop();
+
+        return drop;
     }
 
     private int SearchEmptySlot()
     {
-        for(int i = 0; i < _pointValue.Count; i++)
+        for (int i = 0; i < _pointValue.Count; i++)
         {
             if (_pointValue[i][0] == 0)
             {

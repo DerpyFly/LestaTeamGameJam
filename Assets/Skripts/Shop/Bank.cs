@@ -20,6 +20,7 @@ public class Bank : MonoBehaviour
     public void AddMoney(int money)
     {
         _money += money;
+        MoneyChange?.Invoke(_money);
     }
 
     public bool TryPay(int price)

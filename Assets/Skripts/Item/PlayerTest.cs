@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using static UnityEditor.Progress;
 
 public class PlayerTest : MonoBehaviour
 {
@@ -15,7 +13,11 @@ public class PlayerTest : MonoBehaviour
 
     private Keyboard _keyboard;
 
+    private bool _isActiveInput = true;
+
     public GameObject DropPoint => _dropPoint;
+
+    public event UnityAction<Item> PickUpGarbage;
 
     private void Awake()
     {
@@ -39,6 +41,16 @@ public class PlayerTest : MonoBehaviour
         _visibleItem = null;
     }
 
+    public void BlockedInput()
+    {
+        _isActiveInput = false;
+    }
+
+    public void UnlockInput()
+    {
+        _isActiveInput = true;
+    }
+
     private void Update()
     {
         InventoryAction();
@@ -46,8 +58,20 @@ public class PlayerTest : MonoBehaviour
 
     private void InventoryAction()
     {
+        if (!_isActiveInput)
+            return;
+
         if (_visibleItem != null && _keyboard.eKey.wasPressedThisFrame)
         {
+            if(_visibleItem.TypeItem == TypeItem.GarbageItem)
+            { 
+                PickUpGarbage?.Invoke(_visibleItem);
+                _visibleItem.SetPoint(-1);
+                _visibleItem = null;
+
+                return;
+            }
+
             if(_visibleItem.TypeItem == TypeItem.PriceItem)
             {
                 if (_backpack.AddItem(_visibleItem))
