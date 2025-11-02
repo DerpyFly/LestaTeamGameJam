@@ -4,6 +4,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] private TypeItem _typeItem;
+    [SerializeField] private int _price = 10;
 
     private bool _isFree = true;
     private int _id;
@@ -12,6 +13,7 @@ public class Item : MonoBehaviour
     private BoxCollider _boxCollider;
 
     public TypeItem TypeItem => _typeItem;
+    public int Price => _price;
 
     private void Awake()
     {
@@ -47,6 +49,7 @@ public class Item : MonoBehaviour
     public int DropPoint()
     {
         _isFree = true;
+        transform.SetParent(null);
         _rb.isKinematic = false;
         _boxCollider.enabled = true;
         _rb.constraints &= ~RigidbodyConstraints.FreezePositionY;

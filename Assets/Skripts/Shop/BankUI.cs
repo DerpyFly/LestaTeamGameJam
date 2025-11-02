@@ -14,6 +14,7 @@ public class BankUI : MonoBehaviour
     private void OnEnable()
     {
         _bank.MoneyChange += ViewMoney;
+        ViewMoney(_bank.Money);
     }
 
     private void ViewMoney(int currentMoney)

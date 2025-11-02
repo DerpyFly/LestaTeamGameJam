@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -13,7 +16,7 @@ public class Inventory : MonoBehaviour
 
     private Keyboard _keyboard;
 
-    private bool _isActiveInput = true;
+    public int CountPriceItem => _backpack.GetItem.Where(item => item.TypeItem == TypeItem.PriceItem).Count();
 
     public GameObject DropPoint => _dropPoint;
 
@@ -28,7 +31,8 @@ public class Inventory : MonoBehaviour
     public void SetActiveItem(Item newItem)
     {
         if (_visibleItem != null)
-            return;
+            if((transform.position - newItem.transform.position).magnitude > (transform.position - _visibleItem.transform.position).magnitude)
+                return;
 
         _visibleItem = newItem;
     }
@@ -41,25 +45,12 @@ public class Inventory : MonoBehaviour
         _visibleItem = null;
     }
 
-    public void BlockedInput()
-    {
-        _isActiveInput = false;
-    }
-
-    public void UnlockInput()
-    {
-        _isActiveInput = true;
-    }
-
     public void InventoryAction()
     {
-        if (!_isActiveInput)
-            return;
-
         if (_visibleItem != null && _keyboard.eKey.wasPressedThisFrame)
         {
             if(_visibleItem.TypeItem == TypeItem.GarbageItem)
-            { 
+            {
                 PickUpGarbage?.Invoke(_visibleItem);
                 _visibleItem.SetPoint(-1);
                 _visibleItem = null;
@@ -67,7 +58,7 @@ public class Inventory : MonoBehaviour
                 return;
             }
 
-            if(_visibleItem.TypeItem == TypeItem.PriceItem)
+            if(_visibleItem.TypeItem == TypeItem.PriceItem || (_visibleItem.TypeItem == TypeItem.ActiveItem && _activeSlot != null))
             {
                 if (_backpack.AddItem(_visibleItem))
                     _visibleItem = null;
@@ -96,5 +87,19 @@ public class Inventory : MonoBehaviour
 
             _backpack.DropItem();
         }
+    }
+
+    public int SellItem()
+    {
+        int allSum = 0;
+
+        List<Item> cellItems = _backpack.DropPriceItem();
+
+        foreach(Item item in cellItems) {
+            allSum += item.Price;
+            item.gameObject.SetActive(false);
+        }
+
+        return allSum;
     }
 }

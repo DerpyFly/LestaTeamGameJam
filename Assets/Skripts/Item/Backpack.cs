@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -17,6 +18,8 @@ public class Backpack : MonoBehaviour
     private List<List<int>> _pointValue = new();
 
     private Rigidbody _rb;
+
+    public List<Item> GetItem => _items.ToList();
 
     private void Update()
     {
@@ -67,11 +70,39 @@ public class Backpack : MonoBehaviour
         _items.Pop();
 
         int dropPoint = drop.DropPoint();
-        drop.transform.SetParent(null);
         drop.transform.position = _player.DropPoint.transform.position;
         _pointValue[dropPoint][0] = 0;
 
         return drop;
+    }
+
+    public List<Item> DropPriceItem()
+    {
+        List<Item> clearStack = new();
+        List<Item> dropItem = new();
+
+        while(_items.Count > 0)
+        {
+            Item item = _items.Pop();
+
+            if (item.TypeItem == TypeItem.PriceItem)
+            {
+                dropItem.Add(item);
+                int dropPoint = item.DropPoint();
+                _pointValue[dropPoint][0] = 0;
+            }
+            else
+            {
+                clearStack.Add(item);
+            }
+        }
+
+        clearStack.Reverse();
+
+        foreach (Item item in clearStack)
+            _items.Push(item);
+
+        return dropItem;
     }
 
     private int SearchEmptySlot()

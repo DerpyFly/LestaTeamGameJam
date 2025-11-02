@@ -11,9 +11,13 @@ public class TrashSystem : MonoBehaviour
         _inventoryAction.PickUpGarbage -= AddTrash;
     }
 
-    private void Awake()
+    private void OnEnable()
     {
         _inventoryAction.PickUpGarbage += AddTrash;
+    }
+
+    private void Awake()
+    {
         CountTrash = 0;
     }
 

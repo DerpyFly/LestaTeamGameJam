@@ -2,8 +2,26 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour, IInteractable
 {
-    public void Interact()
+    [SerializeField] private WindowManager _windowManager;
+
+    private PlayerAll _player;
+
+    private void Awake()
     {
-        throw new System.NotImplementedException();
+        if (_windowManager == null)
+            Debug.LogError("WindowManager is NULL!!!");
+    }
+
+    public void Interact(PlayerAll player)
+    {
+        _player = player;
+        _player.BlockInput();
+        _windowManager.ShopUiEnable(this, player);
+    }
+
+    public void EndInteractable()
+    {
+        _player.UnlockInput();
+        _player.CloseInteract();
     }
 }
