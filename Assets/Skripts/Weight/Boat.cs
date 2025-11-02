@@ -1,9 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Boat : MonoBehaviour
 {
     [SerializeField] private Weight _weight;
+    [SerializeField] private GameObject _offPeople;
+    [SerializeField] private GameObject _onPeople;
+    [SerializeField] private float _timeWait;
 
     private Rigidbody _rb;
 
@@ -22,5 +26,15 @@ public class Boat : MonoBehaviour
     public void Drown()
     {
         _rb.isKinematic = false;
+
+        StartCoroutine(OnPeople());
+    }
+
+    private IEnumerator OnPeople()
+    {
+        yield return new WaitForSeconds(_timeWait);
+
+        _offPeople.SetActive(false);
+        _onPeople.SetActive(true);
     }
 }
