@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   _typeItem: 0
+  _price: 10
 --- !u!54 &6874669131574381762
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &8213310805329780804
 BoxCollider:

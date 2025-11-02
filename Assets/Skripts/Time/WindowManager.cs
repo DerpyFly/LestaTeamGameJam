@@ -14,7 +14,7 @@ public class WindowManager : MonoBehaviour
         _bankUI.gameObject.SetActive(false);
 
         _lastInteractable = interactable;
-        _shopUI.ViewInventory(player);
+        _shopUI.ViewInventory(player, interactable);
         //UI enable;
     }
 

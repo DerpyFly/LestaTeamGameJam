@@ -3,6 +3,8 @@ using UnityEngine;
 public class Shop : MonoBehaviour, IInteractable
 {
     [SerializeField] private WindowManager _windowManager;
+    [Space]
+    [SerializeField] private GameObject _spawnPointItem;
 
     private PlayerAll _player;
 
@@ -23,5 +25,11 @@ public class Shop : MonoBehaviour, IInteractable
     {
         _player.UnlockInput();
         _player.CloseInteract();
+    }
+
+    public void SpawnItem(Item prefab)
+    {
+        Item newItem = Instantiate(prefab);
+        newItem.transform.position = _spawnPointItem.transform.position;
     }
 }
