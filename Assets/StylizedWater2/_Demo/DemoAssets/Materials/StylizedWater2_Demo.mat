@@ -8,8 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StylizedWater2_Demo
-  m_Shader: {fileID: -6465566751694194690, guid: d7b0192b9bf19c949900035fa781fdc4,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: d7b0192b9bf19c949900035fa781fdc4, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ADVANCED_SHADING
   - _CAUSTICS
@@ -19,7 +20,7 @@ Material:
   - _REFRACTION
   - _SHARP_INERSECTION
   - _TRANSLUCENCY
-  - _WAVES
+  - _UNLIT
   m_InvalidKeywords:
   - ADVANCED_LIGHTING
   - _DEPTHEXP_ON
@@ -34,6 +35,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -199,7 +201,7 @@ Material:
     - _IntersectionTiling: 0.13999975
     - _IntersectionWaveDist: 33.28
     - _LightingMode: 2
-    - _LightingOn: 1
+    - _LightingOn: 0
     - _Metallic: 0
     - _Metallicness: 0.1
     - _NORMALMAPOn: 1
@@ -282,7 +284,7 @@ Material:
     - _WaveSpeed: 2.3999996
     - _WaveSteepness: 5
     - _WaveTint: 0
-    - _WavesOn: 1
+    - _WavesOn: 0
     - _WorkflowMode: 1
     - _WorldSpaceUV: 1
     - _ZClip: 1
@@ -307,6 +309,7 @@ Material:
     - _WaveDirection: {r: -1, g: -1, b: -1, a: -1}
     - _WaveFadeDistance: {r: 25, g: 286.97916, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &6498140463000427223
 MonoBehaviour:
   m_ObjectHideFlags: 11
