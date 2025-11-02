@@ -10,7 +10,7 @@ using System.Collections;
 // - В DeathTrigger (game object с Collider isTrigger) надо указать тег Player.
 // - Используйте UnityEvents (OnDeathStart, OnBeforeRespawn, OnAfterRespawn, OnDeathComplete) чтобы добавить дополнительные эффекты в будущем (например UI, статистику, etc.).
 
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Collider), typeof(PlayerEvents))]
 public class PlayerDeathController : MonoBehaviour
 {
     [Header("Animation & Sound")]
@@ -34,13 +34,14 @@ public class PlayerDeathController : MonoBehaviour
     [Tooltip("Опционально: компоненты, реализующие IDisableable будут выключены на время смерти")]
     public MonoBehaviour[] disableableComponents;
 
-    [Header("Events")]
-    public UnityEvent OnDeathStart; // вызывается сразу при старте смерт. последовательности
-    public UnityEvent OnBeforeRespawn; // до телепорта
-    public UnityEvent OnAfterRespawn; // сразу после телепорта
-    public UnityEvent OnDeathComplete; // когда вся последовательность завершена
+    private PlayerEvents events;
 
     bool isDead = false;
+
+    void Start()
+    {
+        events = GetComponent<PlayerEvents>();
+    }
 
     public void Die(GameObject killer = null)
     {
@@ -52,7 +53,7 @@ public class PlayerDeathController : MonoBehaviour
     {
         isDead = true;
         // 1) invoke start event
-        OnDeathStart?.Invoke();
+        events.OnDeathStart?.Invoke();
 
         // 2) отключаем управление
         foreach (var mb in disableableComponents)
@@ -63,7 +64,7 @@ public class PlayerDeathController : MonoBehaviour
             else
                 mb.enabled = false;
         }
-        OnBeforeRespawn?.Invoke();
+        events.OnBeforeRespawn?.Invoke();
 
         // 3) play animation
         if (animator != null && !string.IsNullOrEmpty(deathTriggerName))
@@ -110,7 +111,7 @@ public class PlayerDeathController : MonoBehaviour
         yield return new WaitForSeconds(vignetteHold);
 
         // 7) Before respawn event
-        OnBeforeRespawn?.Invoke();
+        events.OnBeforeRespawn?.Invoke();
 
         // 8) Корутина респауна (телепорт, сброс физики и т.д.)
         if (respawnPoint != null)
@@ -134,7 +135,7 @@ public class PlayerDeathController : MonoBehaviour
             }
         }
 
-        OnAfterRespawn?.Invoke();
+        events.OnAfterRespawn?.Invoke();
 
         // 9) возвращаем экран (fade out)
         if (vignetteFader != null)
@@ -161,6 +162,6 @@ public class PlayerDeathController : MonoBehaviour
         }
 
         isDead = false;
-        OnDeathComplete?.Invoke();
+        events.OnDeathComplete?.Invoke();
     }
 }
