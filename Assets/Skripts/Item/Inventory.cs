@@ -51,12 +51,7 @@ public class Inventory : MonoBehaviour
         _isActiveInput = true;
     }
 
-    private void Update()
-    {
-        InventoryAction();
-    }
-
-    private void InventoryAction()
+    public void InventoryAction()
     {
         if (!_isActiveInput)
             return;

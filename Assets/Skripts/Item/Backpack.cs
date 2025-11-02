@@ -66,7 +66,7 @@ public class Backpack : MonoBehaviour
         Item drop = _items.Peek();
         _items.Pop();
 
-        int dropPoint = _items.Peek().DropPoint();
+        int dropPoint = drop.DropPoint();
         drop.transform.SetParent(null);
         drop.transform.position = _player.DropPoint.transform.position;
         _pointValue[dropPoint][0] = 0;
