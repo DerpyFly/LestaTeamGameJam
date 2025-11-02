@@ -5,6 +5,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private PlayerInputActions playerInput;
     [SerializeField] private Rigidbody rb;
+
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float acceleration = 10f;
 
@@ -22,7 +23,7 @@ public class Movement : MonoBehaviour
         playerInput = new PlayerInputActions();
         playerInput.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         playerInput.Player.Move.canceled += ctx => movementInput = Vector2.zero;
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 
     void OnEnable()
