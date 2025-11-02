@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         _sprintAction = InputSystem.actions.FindAction("Sprint");
 
         _rigidbody = GetComponent<Rigidbody>();
+
     }
 
     void Update()
