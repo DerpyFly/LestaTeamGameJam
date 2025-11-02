@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerEvents))]   
 public class PlayerAll : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
     [SerializeField] private Bank _bank;
 
     private Keyboard _keyboard;
+    private PlayerEvents _playerEvents;
 
     private IInteractable _currentInteractable;
     private bool _isInteract = false;
@@ -18,6 +20,7 @@ public class PlayerAll : MonoBehaviour
 
     private void Awake()
     {
+        _playerEvents = GetComponent<PlayerEvents>();
         _keyboard = Keyboard.current;
     }
 
@@ -63,12 +66,28 @@ public class PlayerAll : MonoBehaviour
         _isInteract = false;
     }
 
+    public Item PopActiveSlot()
+    {
+        return _inventory.PopActiveSlot();
+    }
+
+    public void ViewWindowInteract(KeyCode keyCode, ItemName notFoundItem = ItemName.None)
+    {
+        if(keyCode == KeyCode.None)
+            _playerEvents.DisableWindowInteract();
+
+        if (notFoundItem == ItemName.None)
+            _playerEvents.EnableWindowInteract(keyCode);
+        else
+            _playerEvents.EnableWindowNotFoundItem(notFoundItem);
+    }
+
     private void CheckUseInteractable()
     {
         if(_currentInteractable != null && !_isInteract && _keyboard.eKey.wasPressedThisFrame)
         {
-            _currentInteractable.Interact(this);
             _isInteract = true;
+            _currentInteractable.Interact(this);
         }
     }
 }

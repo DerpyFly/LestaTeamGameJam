@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
     public int CountPriceItem => _backpack.GetItem.Where(item => item.TypeItem == TypeItem.PriceItem).Count();
 
     public GameObject DropPoint => _dropPoint;
+    public ItemName ItemName => _activeSlot.ItemName;
 
     public event UnityAction<Item> PickUpGarbage;
 
@@ -43,6 +44,20 @@ public class Inventory : MonoBehaviour
             return;
 
         _visibleItem = null;
+    }
+
+    public Item PopActiveSlot()
+    {
+        if (_activeSlot == null)
+            return null;
+
+        _activeSlot.transform.SetParent(null);
+        _activeSlot.DropPoint();
+
+        Item drop = _activeSlot;
+        _activeSlot = null;
+
+        return drop;
     }
 
     public void InventoryAction()
