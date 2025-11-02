@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         if (_lookAmt != Vector2.zero)
         {
             float rotationAmountY = -_lookAmt.y * Sensetive * Time.deltaTime;
-            Quaternion deltaRotationY = Quaternion.Euler(0, 0 , rotationAmountY);
+            Quaternion deltaRotationY = Quaternion.Euler(0, 0 ,rotationAmountY);
             Quaternion newRotationY = _rigidbody.rotation * deltaRotationY;
             float rotationAmountX = _lookAmt.x * Sensetive * Time.deltaTime;
             Quaternion deltaRotationX = Quaternion.Euler(0, rotationAmountX, 0);
