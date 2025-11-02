@@ -14,4 +14,29 @@ public class PlayerEvents : MonoBehaviour
     public UnityEvent OnBeforeRespawn; // до телепорта
     public UnityEvent OnAfterRespawn; // сразу после телепорта
     public UnityEvent OnDeathComplete; // когда вся последовательность завершена
+
+    //действие для отображения окошка "нажмите E"
+    public event UnityAction OnActionE;
+    //действие для отображения окошка "нажмите Q"
+    public event UnityAction OnActionQ;
+    //действие при выходе из триггера взаимодействия
+    public event UnityAction OnCloseWindow;
+
+    public void EnableWindowInteract(KeyCode keyCode)
+    {
+        switch (keyCode)
+        {
+            case KeyCode.E:
+                OnActionE?.Invoke();
+                break;
+            case KeyCode.Q:
+                OnActionQ?.Invoke();
+                break;
+        }
+    }
+
+    public void DisableWindowInteract(KeyCode keyCode)
+    {
+        OnCloseWindow?.Invoke();
+    }
 }

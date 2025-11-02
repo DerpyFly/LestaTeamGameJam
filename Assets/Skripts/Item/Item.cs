@@ -14,6 +14,7 @@ public class Item : MonoBehaviour
     private BoxCollider _boxCollider;
 
     public TypeItem TypeItem => _typeItem;
+    public ItemName ItemName => _itemName;
     public int Price => _price;
 
     private void Awake()

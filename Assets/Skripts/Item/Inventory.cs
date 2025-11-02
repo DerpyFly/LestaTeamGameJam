@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
     public int CountPriceItem => _backpack.GetItem.Where(item => item.TypeItem == TypeItem.PriceItem).Count();
 
     public GameObject DropPoint => _dropPoint;
+    public ItemName ItemName => _activeSlot.ItemName;
 
     public event UnityAction<Item> PickUpGarbage;
 

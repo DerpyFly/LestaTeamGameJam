@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerEvents))]   
 public class PlayerAll : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
     [SerializeField] private Bank _bank;
 
     private Keyboard _keyboard;
+    private PlayerEvents _playerEvents;
 
     private IInteractable _currentInteractable;
     private bool _isInteract = false;
@@ -18,6 +20,7 @@ public class PlayerAll : MonoBehaviour
 
     private void Awake()
     {
+        _playerEvents = GetComponent<PlayerEvents>();
         _keyboard = Keyboard.current;
     }
 
@@ -61,6 +64,17 @@ public class PlayerAll : MonoBehaviour
     public void CloseInteract()
     {
         _isInteract = false;
+    }
+
+    public void ViewWindowInteract(KeyCode keyCode, ItemName notFoundItem = ItemName.None)
+    {
+        if(keyCode == KeyCode.None)
+            _playerEvents.DisableWindowInteract();
+
+        if (notFoundItem == ItemName.None)
+            _playerEvents.EnableWindowInteract(keyCode);
+        else
+            _playerEvents.EnableWindowNotFoundItem(notFoundItem);
     }
 
     private void CheckUseInteractable()
