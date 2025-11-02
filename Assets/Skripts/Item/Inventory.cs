@@ -46,6 +46,20 @@ public class Inventory : MonoBehaviour
         _visibleItem = null;
     }
 
+    public Item PopActiveSlot()
+    {
+        if (_activeSlot == null)
+            return null;
+
+        _activeSlot.transform.SetParent(null);
+        _activeSlot.DropPoint();
+
+        Item drop = _activeSlot;
+        _activeSlot = null;
+
+        return drop;
+    }
+
     public void InventoryAction()
     {
         if (_visibleItem != null && _keyboard.eKey.wasPressedThisFrame)

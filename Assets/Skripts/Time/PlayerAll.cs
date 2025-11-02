@@ -66,6 +66,11 @@ public class PlayerAll : MonoBehaviour
         _isInteract = false;
     }
 
+    public Item PopActiveSlot()
+    {
+        return _inventory.PopActiveSlot();
+    }
+
     public void ViewWindowInteract(KeyCode keyCode, ItemName notFoundItem = ItemName.None)
     {
         if(keyCode == KeyCode.None)
@@ -81,8 +86,8 @@ public class PlayerAll : MonoBehaviour
     {
         if(_currentInteractable != null && !_isInteract && _keyboard.eKey.wasPressedThisFrame)
         {
-            _currentInteractable.Interact(this);
             _isInteract = true;
+            _currentInteractable.Interact(this);
         }
     }
 }

@@ -35,7 +35,12 @@ public class PlayerEvents : MonoBehaviour
         }
     }
 
-    public void DisableWindowInteract(KeyCode keyCode)
+    public void EnableWindowNotFoundItem(ItemName notFoundItem)
+    {
+
+    }
+
+    public void DisableWindowInteract()
     {
         OnCloseWindow?.Invoke();
     }
