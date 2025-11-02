@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TrashSystem : MonoBehaviour
 {
-    [SerializeField] private PlayerTest _inventoryAction;
+    [SerializeField] private Inventory _inventoryAction;
 
     public int CountTrash {  get; private set; }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerTest : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject _dropPoint;
     [SerializeField] private GameObject _activeSlotPoint;

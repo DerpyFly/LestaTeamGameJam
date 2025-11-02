@@ -21,7 +21,7 @@ public class Item : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (_isFree && other.gameObject.TryGetComponent(out PlayerTest player))
+        if (_isFree && other.gameObject.TryGetComponent(out Inventory player))
         {
             player.SetActiveItem(this);
         }
@@ -29,7 +29,7 @@ public class Item : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (_isFree && other.gameObject.TryGetComponent(out PlayerTest player))
+        if (_isFree && other.gameObject.TryGetComponent(out Inventory player))
         {
             player.DeleteActiveItem(this);
         }

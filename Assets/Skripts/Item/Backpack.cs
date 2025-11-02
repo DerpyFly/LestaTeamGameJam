@@ -12,7 +12,7 @@ public class Backpack : MonoBehaviour
     [SerializeField] private float _length = 10;
     [SerializeField] private List<GameObject> _points = new();
 
-    private PlayerTest _player;
+    private Inventory _player;
     private Stack<Item> _items = new();
     private List<List<int>> _pointValue = new();
 
@@ -33,7 +33,7 @@ public class Backpack : MonoBehaviour
             _rb.AddForce(-_rb.linearVelocity.normalized * _returnForce * Time.deltaTime);
     }
 
-    public void Init(PlayerTest player)
+    public void Init(Inventory player)
     {
         _rb = GetComponent<Rigidbody>();
 
