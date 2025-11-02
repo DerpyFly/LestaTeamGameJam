@@ -73,7 +73,7 @@ public class Inventory : MonoBehaviour
                 return;
             }
 
-            if(_visibleItem.TypeItem == TypeItem.PriceItem || (_visibleItem.TypeItem == TypeItem.ActiveItem && _activeSlot != null))
+            if(_visibleItem.TypeItem == TypeItem.PriceItem)
             {
                 if (_backpack.AddItem(_visibleItem))
                     _visibleItem = null;
