@@ -50,7 +50,7 @@ public class PlayerAll : MonoBehaviour
                 _inventory.InventoryAction();
         }
     }
-
+    
     public void BlockInput()
     {
         _isActiveInput = false;

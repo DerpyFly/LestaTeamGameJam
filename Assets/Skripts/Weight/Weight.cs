@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(SphereCollider))]
 public class Weight : MonoBehaviour, IInteractable
@@ -9,9 +10,10 @@ public class Weight : MonoBehaviour, IInteractable
     private int _needCountWeight = 3;
 
     private PlayerAll _player;
-    private bool _isInteract = true;
 
     private SphereCollider _sphereCollider;
+
+    public event UnityAction OnEndWeight;
 
     private void Awake()
     {
@@ -42,7 +44,10 @@ public class Weight : MonoBehaviour, IInteractable
             EndInteractable();
 
             if (_needCountWeight == 0)
+            {
                 _sphereCollider.radius = 0;
+                OnEndWeight?.Invoke();
+            }
         }
         else
         {
