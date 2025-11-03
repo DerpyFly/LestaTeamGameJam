@@ -23,6 +23,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private GameObject SpawnPoint;
 
+    [SerializeField] private AudioSource audioSourceOnPressE;
+
     private Vector2 movementInput;
     private Transform cameraTransform;
     private float currentSmoothAngleVelocity;
@@ -38,12 +40,18 @@ public class Movement : MonoBehaviour
 
     void OnEnable()
     {
-        
+        playerInput.Player.Interact.performed += PlayInteractSound;
     }
 
     void OnDisable()
     {
+        playerInput.Player.Interact.performed -= PlayInteractSound;
         DisablePlayerActionMap();
+    }
+
+    void PlayInteractSound(InputAction.CallbackContext ctx)
+    {
+        audioSourceOnPressE.PlayOneShot(audioSourceOnPressE.clip);
     }
 
     void Start()
