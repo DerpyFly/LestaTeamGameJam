@@ -26,6 +26,7 @@ public class PlayerEvents : MonoBehaviour
     {
         switch (keyCode)
         {
+            // TODO : prikrutit okna s podskazkoy
             case KeyCode.E:
                 OnActionE?.Invoke();
                 break;
