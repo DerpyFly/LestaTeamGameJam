@@ -8131,12 +8131,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 596083007469218127, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596083007469218127, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 596083007469218127, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
       propertyPath: m_CollisionDetection
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664984220302844529, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
+      propertyPath: _force
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664984220302844529, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
+      propertyPath: _radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664984220302844529, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
+      propertyPath: _deltaYXZ.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664984220302844529, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
+      propertyPath: _deltaYXZ.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664984220302844529, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
+      propertyPath: _deltaYXZ.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664984220302844529, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
+      propertyPath: _returnForce
+      value: 4500
       objectReference: {fileID: 0}
     - target: {fileID: 8719056939740418675, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
       propertyPath: m_Name

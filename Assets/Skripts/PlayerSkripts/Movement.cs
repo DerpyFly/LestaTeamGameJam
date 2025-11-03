@@ -115,6 +115,8 @@ public class Movement : MonoBehaviour
 
     public void EnablePlayerActionMap()
     {
+        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.visible = false;
         playerInput.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         playerInput.Player.Move.canceled += ctx => movementInput = Vector2.zero;
         playerInput.Player.Enable();
@@ -122,6 +124,8 @@ public class Movement : MonoBehaviour
 
     public void DisablePlayerActionMap()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         playerInput.Player.Move.performed -= ctx => movementInput = ctx.ReadValue<Vector2>();
         playerInput.Player.Move.canceled -= ctx => movementInput = Vector2.zero;
         playerInput.Player.Disable();

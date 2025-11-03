@@ -8,9 +8,9 @@ public class Backpack : MonoBehaviour
     [SerializeField] private float _maxSpeed = 5;
     [SerializeField] private float _minSpeed = 5;
     [SerializeField] private float _force = 500;
-    [SerializeField] private float _deltaY = 0.3f;
+    [SerializeField] private Vector3 _deltaYXZ;
     [SerializeField] private float _returnForce = 500;
-    [SerializeField] private float _length = 10;
+    [SerializeField] private float _radius = 3; 
     [SerializeField] private List<GameObject> _points = new();
 
     private Inventory _player;
@@ -23,14 +23,27 @@ public class Backpack : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Vector3 target = _player.transform.position + _player.transform.TransformDirection(_deltaYXZ);
+
+        Vector3 direction = (transform.position - target).normalized;
+
+        float currentDistance = Vector3.Distance(target, transform.position);
+
+        if (currentDistance > _radius)
+        {
+            Vector3 desiredPosition = target + direction * _radius;
+            Vector3 force = desiredPosition - transform.position;
+
+            if (force.magnitude > _radius)
+                _rb.AddForce(force.normalized * _force * Time.deltaTime);
+        }
+        else
+        {
+
+            if (_rb.linearVelocity.magnitude > _minSpeed)
+                _rb.AddForce(-_rb.linearVelocity.normalized * _returnForce * Time.deltaTime);
+        }
         transform.LookAt(new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z));
-
-        Vector3 target = new Vector3(_player.transform.position.x, _player.transform.position.y + _deltaY, _player.transform.position.z);
-
-        if ((target - transform.position).magnitude > _length && _rb.linearVelocity.magnitude < _maxSpeed)
-            _rb.AddForce((target - transform.position) * _force * Time.deltaTime);
-        else if ((target - transform.position).magnitude < _length && _rb.linearVelocity.magnitude > _minSpeed)
-            _rb.AddForce(-_rb.linearVelocity.normalized * _returnForce * Time.deltaTime);
     }
 
     public void Init(Inventory player)
@@ -54,6 +67,7 @@ public class Backpack : MonoBehaviour
         newItem.SetPoint(emptySlot);
         newItem.transform.SetParent(transform);
         newItem.transform.position = _points[emptySlot].transform.position;
+        newItem.transform.localScale = _points[emptySlot].transform.localScale;
 
         return true;
     }
