@@ -9,6 +9,7 @@ public class Torches : MonoBehaviour
     private int _torcheCount;
 
     public event UnityAction OnFinalPearl;
+    [SerializeField] private WaypointMovement waypointMovement;
 
     private void Awake()
     {
@@ -21,8 +22,7 @@ public class Torches : MonoBehaviour
 
         if (_torcheCount == 0)
         {
-            OnFinalPearl?.Invoke();
-            Debug.Log("Final!!!");
+            waypointMovement.enabled = true;
         }
     }
 }
