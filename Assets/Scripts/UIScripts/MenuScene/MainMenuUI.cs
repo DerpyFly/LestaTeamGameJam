@@ -6,18 +6,18 @@ using System.Collections;
 
 public class MainMenuUI : MonoBehaviour
 {
-    [Header("Кнопки меню")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ")]
     public Button startButton;
     public Button settingsButton;
     public Button quitButton;
 
-    [Header("Картинка для показа")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ")]
     public Image introImage;
 
-    [Header("Темный фон")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ")]
     public Image darkBackground;
 
-    [Header("Настройки")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public string nextSceneName = "SceneMender";
     public float imageShowTime = 3f;
     public float darkTime = 2f;
