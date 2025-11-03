@@ -1,10 +1,14 @@
 public enum ItemName
 {
     None,
+    Scissors,
+    UseScissors,
     Weight,
     Net,
-    Propeller,
-    DynamitePlace,
+    BreakPropeller,
     Dynamite,
+    PlaceDynamite,
+    Lighter,
+    Boom,
     Pearl,
 }

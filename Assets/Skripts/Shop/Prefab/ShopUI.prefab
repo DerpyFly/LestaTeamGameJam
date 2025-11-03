@@ -1493,15 +1493,15 @@ MonoBehaviour:
     \u043B\u043E\u0434\u043A\u0438."
   _shopElementsPrefab:
   - Element: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
-    PrefabItem: {fileID: 6479835018124711094, guid: ef3dde6754ae0504e9d3e6a4a1767d32, type: 3}
+    PrefabItem: {fileID: 8226719390084127664, guid: 5d1223f2f5f28bd42abaa87630170597, type: 3}
     Icon: {fileID: 0}
     Price: 2
   - Element: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
-    PrefabItem: {fileID: 6479835018124711094, guid: ef3dde6754ae0504e9d3e6a4a1767d32, type: 3}
+    PrefabItem: {fileID: 8226719390084127664, guid: 0a39c7e16bec52d4c93f0db4de648756, type: 3}
     Icon: {fileID: 0}
     Price: 5
   - Element: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
-    PrefabItem: {fileID: 6479835018124711094, guid: ef3dde6754ae0504e9d3e6a4a1767d32, type: 3}
+    PrefabItem: {fileID: 8991916344933672454, guid: d025ae68b3ae28d469cf62897112bc41, type: 3}
     Icon: {fileID: 0}
     Price: 10
   - Element: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}

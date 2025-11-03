@@ -7,10 +7,9 @@ public class StorySystem : MonoBehaviour
     [SerializeField] private StoryItems storyItems;
     [SerializeField] private PlayerAll playerAll;
     [SerializeField] private GameObject netPrefab;
-    [SerializeField] private GameObject brokenPropellerPrefab;
+    [SerializeField] private GameObject netOnPropeller;
     [SerializeField] private ScrewRotator screwRotator1;
     [SerializeField] private ScrewRotator screwRotator2;
-    [SerializeField] private Transform propellerTransformForNet;
     [SerializeField] private WaypointMovement boatWaypointMovement;
     [SerializeField] private GameObject dynamiteGhostPrefab;
     [SerializeField] private Transform dynamiteSpawnTransform;
@@ -43,36 +42,51 @@ public class StorySystem : MonoBehaviour
     {
         switch(obj.ItemName)
         {
-            case ItemName.Net:
+            case ItemName.Scissors:
+                storyItems.storyItems[0] = true;
+                break;
+            case ItemName.Dynamite:
+                storyItems.storyItems[1] = true;
+                break;
+            case ItemName.Lighter:
+                storyItems.storyItems[2] = true;
+                break;
+            case ItemName.UseScissors:
                 if (storyItems.storyItems[0])
                 {
                     Instantiate(netPrefab, obj.transform.position, Quaternion.identity);
+                    Destroy(obj.gameObject);
                 }
                 break;
-            case ItemName.Propeller:
+            case ItemName.BreakPropeller:
                 if (playerAll.Inventory.ItemName == ItemName.Net)
                 {
                     screwRotator1.StopRotation();
                     screwRotator2.StopRotation();
                     boatWaypointMovement.enabled = false;
-                    Instantiate(brokenPropellerPrefab, propellerTransformForNet);
+                    netOnPropeller.SetActive(true);
+                    // Instantiate(brokenPropellerPrefab, propellerTransformForNet);
                     spawnedGhostDynamite = Instantiate(dynamiteGhostPrefab, dynamiteSpawnTransform);
                 }
                 break;
-            case ItemName.DynamitePlace:
+            case ItemName.PlaceDynamite:
                 if (storyItems.storyItems[1])
                 {
                     spawnedDynamite = Instantiate(dynamitePrefab, dynamiteSpawnTransform);
                     Destroy(spawnedGhostDynamite);
                 }
                 break;
-            case ItemName.Dynamite:
+            case ItemName.Boom:
                 if (storyItems.storyItems[2])
                 {
                     // TODO: call dynamite explosion
                     Destroy(spawnedDynamite);
                     // TODO: make hole in boat
                     bossBoat.GetComponent<Rigidbody>().useGravity = true;
+                }
+                else
+                {
+                    
                 }
                 break;
             default:

@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   _typeItem: 1
-  _itemName: 1
+  _itemName: 3
   _price: 10
 --- !u!136 &7853784934317291032
 CapsuleCollider:

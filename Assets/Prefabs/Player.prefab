@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4700646030366833182}
   - component: {fileID: 3119905711464195796}
   - component: {fileID: 4435914603204570819}
+  - component: {fileID: 6875712732803958424}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -300,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ovement
   rb: {fileID: 604501113119003416}
-  moveSpeed: 10
+  moveSpeed: 19
   acceleration: 10
   rotateToForwardOnly: 1
   forwardRotateThreshold: 0.1
@@ -346,8 +347,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752f10fa5eb155e49b8b6801a439c8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectablesGame
-  _collectableCount: 0
+  _collectableCount: 7
   spawnObject: {fileID: 0}
+--- !u!114 &6875712732803958424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475622170471075764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0a417389a761447866b695e7be54be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StorySystem
+  _inventoryAction: {fileID: 3119905711464195796}
+  storyItems: {fileID: 1865628410512190154}
+  playerAll: {fileID: 4700646030366833182}
+  netPrefab: {fileID: 4048074011771160618, guid: 41228a7e80a97cb40870bf3326ff2fc1, type: 3}
+  netOnPropeller: {fileID: 0}
+  screwRotator1: {fileID: 0}
+  screwRotator2: {fileID: 0}
+  boatWaypointMovement: {fileID: 0}
+  dynamiteGhostPrefab: {fileID: 2082379330452997175, guid: 133b423270cfe144aaad846a80d53f4a, type: 3}
+  dynamiteSpawnTransform: {fileID: 0}
+  dynamitePrefab: {fileID: 6501379425847512565, guid: 0a39c7e16bec52d4c93f0db4de648756, type: 3}
+  bossBoat: {fileID: 0}
 --- !u!1 &3104805834494312082
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,13 +428,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5155616903827839824}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0018999577, y: -0.06129998, z: 0.53}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.0018999577, y: -0.06129998, z: 0.575}
   m_LocalScale: {x: 0.32825, y: 0.32825, z: 0.32825}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3715098589411305415}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &5868521411013877915
 GameObject:
   m_ObjectHideFlags: 0
