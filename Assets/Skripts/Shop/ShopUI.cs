@@ -19,7 +19,7 @@ public class ShopUI : MonoBehaviour
     private Shop _shop;
 
     private List<ShopElement> _shopElements = new();
-    
+
     private void Awake()
     {
         for (int i = 0; i < _shopElementsPrefab.Count; i++)
@@ -74,9 +74,7 @@ public class ShopUI : MonoBehaviour
             shopElement.Element.DisableButton();
 
             if(id + 1 < _shopElements.Count)
-            {
                 _shopElements[id + 1].Element.EnableButton();
-            }
 
             ViewInventory();
         }

@@ -9,6 +9,7 @@ public class PlayerAll : MonoBehaviour
 
     private Keyboard _keyboard;
     private PlayerEvents _playerEvents;
+    private Movement _movement;
 
     private IInteractable _currentInteractable;
     private bool _isInteract = false;
@@ -22,6 +23,7 @@ public class PlayerAll : MonoBehaviour
     {
         _playerEvents = GetComponent<PlayerEvents>();
         _keyboard = Keyboard.current;
+        _movement = GetComponent<Movement>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,11 +56,13 @@ public class PlayerAll : MonoBehaviour
     public void BlockInput()
     {
         _isActiveInput = false;
+        _movement.DisablePlayerActionMap();
     }
 
     public void UnlockInput()
     {
         _isActiveInput = true;
+        _movement.EnablePlayerActionMap();
     }
 
     public void CloseInteract()

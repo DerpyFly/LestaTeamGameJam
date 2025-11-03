@@ -41,7 +41,7 @@ public class Backpack : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
 
         _player = player;
-
+        
         foreach (GameObject point in _points)
             _pointValue.Add(new() { 0 });
     }

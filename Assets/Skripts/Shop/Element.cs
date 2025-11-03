@@ -17,8 +17,8 @@ public class Element : MonoBehaviour
     {
         _shopUI = shopUI;
         _id = id;
-
         _icon.sprite = icon;
+
         _textPrice.text = price.ToString();
     }
 

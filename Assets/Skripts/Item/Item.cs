@@ -1,6 +1,6 @@
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(CapsuleCollider))]
 public class Item : MonoBehaviour
 {
     [SerializeField] private TypeItem _typeItem;
@@ -10,7 +10,7 @@ public class Item : MonoBehaviour
     private int _id;
 
     private Rigidbody _rb;
-    private Collider _collider;
+    private CapsuleCollider _collider;
 
     public TypeItem TypeItem => _typeItem;
     public ItemName ItemName => _itemName;
@@ -19,15 +19,7 @@ public class Item : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        var cols = GetComponents<Collider>();
-        foreach (var col in cols)
-        {
-            if (col.isTrigger == false)
-            {
-                _collider = col;
-                break;
-            }
-        }
+        _collider = GetComponent<CapsuleCollider>();
     }
 
     private void OnTriggerStay(Collider other)

@@ -20,7 +20,6 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         playerInput = new PlayerInputActions();
-
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 
@@ -113,7 +112,7 @@ public class Movement : MonoBehaviour
             }
         }
     }
-    
+
     public void EnablePlayerActionMap()
     {
         playerInput.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
