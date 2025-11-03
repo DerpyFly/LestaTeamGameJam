@@ -10,13 +10,18 @@ public class ShopUI : MonoBehaviour
     [Space]
     [SerializeField] private TMP_Text _textCountItem;
     [SerializeField] private TMP_Text _textMoney;
+    [SerializeField] private TMP_Text _textLine;
     [SerializeField] private string _textNameMoney = "Coins";
     [SerializeField] private GameObject _content;
+    [Space]
+    [SerializeField] private List<string> _texts;
     [Space]
     [SerializeField] private List<ShopElement> _shopElementsPrefab = new();
 
     private PlayerAll _player;
     private Shop _shop;
+
+    private int _index = 0;
 
     private List<ShopElement> _shopElements = new();
 
@@ -38,6 +43,8 @@ public class ShopUI : MonoBehaviour
             if (i >= 1)
                 newElement.DisableButton();
         }
+
+        _textLine.text = _texts[_index];
     }
 
     public void ViewInventory(PlayerAll player = null, IInteractable interactable = null)
@@ -70,6 +77,7 @@ public class ShopUI : MonoBehaviour
 
         if(resultBuy)
         {
+            _index++;
             _shop.SpawnItem(shopElement.PrefabItem);
             shopElement.Element.DisableButton();
 
@@ -77,6 +85,9 @@ public class ShopUI : MonoBehaviour
                 _shopElements[id + 1].Element.EnableButton();
 
             ViewInventory();
+
+            if(_index < _texts.Count)
+                _textLine.text = _texts[_index];
         }
     }
 }

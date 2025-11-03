@@ -1376,7 +1376,7 @@ PrefabInstance:
     - target: {fileID: 2516240145724744085, guid: 0ba7a22433936f84695507c49e28dec1, type: 3}
       propertyPath: _shopElementsPrefab.Array.data[1].Icon
       value: 
-      objectReference: {fileID: 1784066574, guid: 9961d8353c5240e4082bd110b038a175, type: 3}
+      objectReference: {fileID: 1223337976, guid: fb16c3069b861ef40aca672884fbea50, type: 3}
     - target: {fileID: 2516240145724744085, guid: 0ba7a22433936f84695507c49e28dec1, type: 3}
       propertyPath: _shopElementsPrefab.Array.data[2].Icon
       value: 
