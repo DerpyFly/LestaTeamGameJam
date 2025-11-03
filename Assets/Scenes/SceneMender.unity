@@ -7325,11 +7325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 845512567147093927, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _shopElementsPrefab.Array.data[1].Price
-      value: 700
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 845512567147093927, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _shopElementsPrefab.Array.data[2].Price
-      value: 600
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 1481297661128248544, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _movement
