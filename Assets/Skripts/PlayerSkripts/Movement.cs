@@ -1,5 +1,7 @@
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
@@ -13,7 +15,12 @@ public class Movement : MonoBehaviour
     [SerializeField] private float forwardRotateThreshold = 0.1f;
     [SerializeField] private float rotationSmoothTime = 0.12f;
 
+    [SerializeField] private Camera startCam;
+    [SerializeField] private Camera gameCam;
     [SerializeField] private CinemachineCamera _cam;
+
+    [SerializeField] private GameObject _MenuUi;
+
     [SerializeField] private GameObject SpawnPoint;
 
     private Vector2 movementInput;
@@ -42,14 +49,21 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        cameraTransform = Camera.main.transform;
         DisablePlayerActionMap();
-        _cam.gameObject.SetActive(false);
+        startCam.gameObject.SetActive(true);
+        gameCam.gameObject.SetActive(false);
     }
     public void SpawnPosition()
     {
-        rb.gameObject.transform.position = SpawnPoint.transform.position;
-        rb.gameObject.transform.rotation = SpawnPoint.transform.rotation;
+        startCam.gameObject.SetActive(false);
+        gameCam.gameObject.SetActive(true);
+        StartCoroutine(closeMenu());
+    }
+
+    private IEnumerator closeMenu()
+    {
+        yield return new WaitForSeconds(2);
+        _MenuUi.SetActive(false);
     }
 
     void FixedUpdate()
