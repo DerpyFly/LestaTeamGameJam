@@ -29,11 +29,24 @@ public class ClickFish2Game : MonoBehaviour
     [SerializeField] private Color normalColor = Color.blue;
 
     [SerializeField] private FishingTempGame fishingTempGameScript;
+    [SerializeField] private Transform rewardSpawnPoint;
+    [SerializeField] private List<GameObject> rewardList;
+    [SerializeField] private GameObject humanPrefab;
+
+    [SerializeField] private float spawnOffset = 1.5f;
+    [SerializeField] private float verticalOffset = 0.5f; // смещение вниз
+
+
+
+
+
 
     private float currentClickValue = 0f;
     private float challengeTimer = 0f;
     private bool isChallengeActive = false;
     private Coroutine decreaseCoroutine;
+
+
 
     // Для новой Input System
     private Mouse mouse;
@@ -56,7 +69,7 @@ public class ClickFish2Game : MonoBehaviour
         if (timerText != null)
             timerText.text = challengeDuration.ToString("F1");
 
-       
+
     }
 
     public void StartChallenge()
@@ -235,6 +248,19 @@ public class ClickFish2Game : MonoBehaviour
 
     private void GiveReward()
     {
+        // Спавним человечка
+        Instantiate(humanPrefab, rewardSpawnPoint.position, rewardSpawnPoint.rotation);
 
+        // Получаем 2 случайных номера
+        int randomIndex1 = Random.Range(0, rewardList.Count);
+        int randomIndex2 = Random.Range(0, rewardList.Count);
+
+        // Спавним предмет слева
+        Vector3 leftPosition = rewardSpawnPoint.position + Vector3.left * spawnOffset + Vector3.down * verticalOffset;
+        Instantiate(rewardList[randomIndex1], leftPosition, rewardSpawnPoint.rotation);
+
+        // Спавним предмет справа
+        Vector3 rightPosition = rewardSpawnPoint.position + Vector3.right * spawnOffset + Vector3.down * verticalOffset;
+        Instantiate(rewardList[randomIndex2], rightPosition, rewardSpawnPoint.rotation);
     }
 }
