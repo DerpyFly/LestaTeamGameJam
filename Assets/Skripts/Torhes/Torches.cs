@@ -5,11 +5,9 @@ using UnityEngine.Events;
 public class Torches : MonoBehaviour
 {
     [SerializeField] private List<Torche> _torches;
+    [SerializeField] private WaypointMovement waypointMovement;
 
     private int _torcheCount;
-
-    public event UnityAction OnFinalPearl;
-    [SerializeField] private WaypointMovement waypointMovement;
 
     private void Awake()
     {
