@@ -67,6 +67,7 @@ public class Backpack : MonoBehaviour
         newItem.SetPoint(emptySlot);
         newItem.transform.SetParent(transform);
         newItem.transform.position = _points[emptySlot].transform.position;
+        newItem.transform.localScale = _points[emptySlot].transform.localScale;
 
         return true;
     }
