@@ -11834,6 +11834,10 @@ PrefabInstance:
       propertyPath: _inventoryAction
       value: 
       objectReference: {fileID: 1523437057}
+    - target: {fileID: 7499842926969532211, guid: a725172beb3984044b98a3a4b8ec2990, type: 3}
+      propertyPath: _startMoney
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
