@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   _typeItem: 0
   _itemName: 0
-  _price: 10
+  _price: 20
 --- !u!135 &6515614663580966952
 SphereCollider:
   m_ObjectHideFlags: 0

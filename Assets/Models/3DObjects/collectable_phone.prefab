@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   _typeItem: 0
   _itemName: 0
-  _price: 10
+  _price: 50
 --- !u!65 &4771240253169177927
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -178,5 +178,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.12383576, y: 0.015911996, z: 0.23250994}
-  m_Center: {x: 2.03e-42, y: -0.0009504622, z: -0.002763193}
+  m_Size: {x: 0.12383576, y: 0.054027557, z: 0.23250994}
+  m_Center: {x: -2.5495984e-27, y: -0.0054502487, z: -0.0027631968}
