@@ -34,6 +34,7 @@ public class ClickFish2Game : MonoBehaviour
     [SerializeField] private GameObject humanPrefab;
 
     [SerializeField] private float spawnOffset = 1.5f;
+    [SerializeField] private float verticalOffset = 0.5f; // смещение вниз
 
 
 
@@ -255,11 +256,11 @@ public class ClickFish2Game : MonoBehaviour
         int randomIndex2 = Random.Range(0, rewardList.Count);
 
         // Спавним предмет слева
-        Vector3 leftPosition = rewardSpawnPoint.position + Vector3.left * spawnOffset;
+        Vector3 leftPosition = rewardSpawnPoint.position + Vector3.left * spawnOffset + Vector3.down * verticalOffset;
         Instantiate(rewardList[randomIndex1], leftPosition, rewardSpawnPoint.rotation);
 
         // Спавним предмет справа
-        Vector3 rightPosition = rewardSpawnPoint.position + Vector3.right * spawnOffset;
+        Vector3 rightPosition = rewardSpawnPoint.position + Vector3.right * spawnOffset + Vector3.down * verticalOffset;
         Instantiate(rewardList[randomIndex2], rightPosition, rewardSpawnPoint.rotation);
     }
 }
