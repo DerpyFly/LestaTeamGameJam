@@ -52,18 +52,18 @@ public class Torche : MonoBehaviour, IInteractable
             if (_player == null)
                 _player = player;
 
-            if (player.Inventory.ItemName == ItemName.Weight)
-                player.ViewWindowInteract(KeyCode.E);
-            else
-                player.ViewWindowInteract(KeyCode.E, ItemName.Weight);
+            if (other.gameObject.TryGetComponent(out PlayerEvents playerEvents) && player.Inventory.ItemName == ItemName.Pearl)
+            {
+                playerEvents.OnShowPressHint?.Invoke();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out PlayerAll player))
+        if (other.gameObject.TryGetComponent(out PlayerEvents player))
         {
-            player.ViewWindowInteract(KeyCode.None);
+            player.OnInteractComplete?.Invoke();
         }
     }
 }

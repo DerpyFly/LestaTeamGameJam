@@ -20,6 +20,7 @@ public class Inventory : MonoBehaviour
 
     public GameObject DropPoint => _dropPoint;
     public ItemName ItemName => _activeSlot != null ? _activeSlot.ItemName : ItemName.None;
+    public Item VisibleItem => _visibleItem;
 
     public event UnityAction<Item> PickUpGarbage;
     public event UnityAction<Item> OnInteractWithStoryObject;

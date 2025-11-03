@@ -24,6 +24,7 @@ public class Weight : MonoBehaviour, IInteractable
     {
         _player.UnlockInput();
         _player.CloseInteract();
+        _player.PlayerEvents.OnInteractComplete?.Invoke();
     }
 
     public void Interact(PlayerAll player)
@@ -63,10 +64,8 @@ public class Weight : MonoBehaviour, IInteractable
             if (_player == null)
                 _player = player;
 
-            if (player.Inventory.ItemName == ItemName.Weight)
-                player.ViewWindowInteract(KeyCode.E);
-            else
-                player.ViewWindowInteract(KeyCode.E, ItemName.Weight);
+            if(other.gameObject.TryGetComponent(out PlayerEvents playerEvents) && player.Inventory.ItemName == ItemName.Weight)
+                playerEvents.OnShowPressHint?.Invoke();
         }
     }
     
@@ -74,7 +73,8 @@ public class Weight : MonoBehaviour, IInteractable
     {
         if (other.gameObject.TryGetComponent(out PlayerAll player) && _needCountWeight > 0)
         {
-            player.ViewWindowInteract(KeyCode.None);
+            if (other.gameObject.TryGetComponent(out PlayerEvents playerEvents))
+                playerEvents.OnInteractComplete?.Invoke();
         }
     }
 }

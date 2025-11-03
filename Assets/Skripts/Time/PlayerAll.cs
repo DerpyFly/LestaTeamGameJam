@@ -18,6 +18,7 @@ public class PlayerAll : MonoBehaviour
 
     public Inventory Inventory => _inventory;
     public Bank Bank => _bank;
+    public PlayerEvents PlayerEvents => _playerEvents;
 
     private void Awake()
     {
@@ -50,6 +51,15 @@ public class PlayerAll : MonoBehaviour
                 _inventory.InventoryAction();
 
             CheckUseInteractable();
+        }
+
+        if(_inventory.VisibleItem != null)
+        {
+            _playerEvents.OnShowPressHint?.Invoke();
+        }
+        else if (_currentInteractable == null && !_isInteract)
+        {
+            _playerEvents.OnInteractComplete?.Invoke();
         }
     }
     
