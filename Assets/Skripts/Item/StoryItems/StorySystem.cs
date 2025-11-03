@@ -18,6 +18,7 @@ public class StorySystem : MonoBehaviour
     [SerializeField] private GameObject dynamitePrefab;
     [SerializeField] private GameObject bossBoat;
     [SerializeField] private GameObject explosionSound;
+    [SerializeField] private GameObject explosionParticles;
     [SerializeField] private GameObject endMenuUI;
     [SerializeField] private float waitBeforeFinalScene = 7f;
 
@@ -139,6 +140,7 @@ public class StorySystem : MonoBehaviour
     IEnumerator StartFinalScene()
     {
         explosionSound.SetActive(true);
+        explosionParticles.SetActive(true);
 
         yield return new WaitForSeconds(waitBeforeFinalScene);
 
