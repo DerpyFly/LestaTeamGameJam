@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7922065935888028016}
   - component: {fileID: 4700646030366833182}
   - component: {fileID: 3119905711464195796}
+  - component: {fileID: 4435914603204570819}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53bb31dd9d071349a22d09614afcb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryItems
-  storyItems: 010000
+  storyItems: 000000
 --- !u!114 &5805722713808195700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +334,20 @@ MonoBehaviour:
   _dropPoint: {fileID: 5868521411013877915}
   _activeSlotPoint: {fileID: 5155616903827839824}
   _backpack: {fileID: 0}
+--- !u!114 &4435914603204570819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475622170471075764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752f10fa5eb155e49b8b6801a439c8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectablesGame
+  _collectableCount: 0
+  spawnObject: {fileID: 0}
 --- !u!1 &3104805834494312082
 GameObject:
   m_ObjectHideFlags: 0
