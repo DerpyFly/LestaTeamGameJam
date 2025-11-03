@@ -2656,6 +2656,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1110420482}
     - target: {fileID: 6875712732803958424, guid: 2f276c681b1675d478d3f08ee5c67955, type: 3}
+      propertyPath: endMenuUI
+      value: 
+      objectReference: {fileID: 1260064588}
+    - target: {fileID: 6875712732803958424, guid: 2f276c681b1675d478d3f08ee5c67955, type: 3}
       propertyPath: lighterCanv
       value: 
       objectReference: {fileID: 1686100194}
@@ -9430,6 +9434,10 @@ PrefabInstance:
       propertyPath: _returnForce
       value: 4500
       objectReference: {fileID: 0}
+    - target: {fileID: 5791247659274358550, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8719056939740418675, guid: 9a90fee29221d2c41b8c3db22a73f00b, type: 3}
       propertyPath: m_Name
       value: BackPack
@@ -14714,6 +14722,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1794522529887931586, guid: 53793a95af800b041845f6d47d5fd876, type: 3}
   m_PrefabInstance: {fileID: 1624656406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1260064588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4636964973293412884, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+  m_PrefabInstance: {fileID: 600603882}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1265150270
 PrefabInstance:
@@ -26284,6 +26297,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 245831002}
+  - {fileID: 600603882}
   - {fileID: 2049087377}
   - {fileID: 1064767582}
   - {fileID: 1920217711}
@@ -26326,7 +26340,6 @@ SceneRoots:
   - {fileID: 1734960690}
   - {fileID: 744709685}
   - {fileID: 842092931}
-  - {fileID: 600603882}
   - {fileID: 1265150270}
   - {fileID: 1385620870}
   - {fileID: 1608348572}
