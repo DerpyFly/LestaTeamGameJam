@@ -16087,7 +16087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1399764945219051799, guid: 67f5ceebe7640a84887b866c64521bd3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 217.63
+      value: 215.52
       objectReference: {fileID: 0}
     - target: {fileID: 1399764945219051799, guid: 67f5ceebe7640a84887b866c64521bd3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16117,9 +16117,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1903503577938092361, guid: 67f5ceebe7640a84887b866c64521bd3, type: 3}
+      propertyPath: LookAtOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078430640418481235, guid: 67f5ceebe7640a84887b866c64521bd3, type: 3}
+      propertyPath: Easing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2123858404555572908, guid: 67f5ceebe7640a84887b866c64521bd3, type: 3}
       propertyPath: m_Name
       value: FreeLook Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498300554027591807, guid: 67f5ceebe7640a84887b866c64521bd3, type: 3}
+      propertyPath: Radius
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498300554027591807, guid: 67f5ceebe7640a84887b866c64521bd3, type: 3}
+      propertyPath: TargetOffset.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9102759147000275063, guid: 67f5ceebe7640a84887b866c64521bd3, type: 3}
       propertyPath: Target.TrackingTarget
@@ -19095,7 +19111,7 @@ Transform:
   m_GameObject: {fileID: 1920217708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 685.65, y: 154.02753, z: 217.63}
+  m_LocalPosition: {x: 685.65, y: 154.02753, z: 215.52}
   m_LocalScale: {x: 3.647869, y: 3.6478684, z: 3.6478667}
   m_ConstrainProportionsScale: 0
   m_Children: []
