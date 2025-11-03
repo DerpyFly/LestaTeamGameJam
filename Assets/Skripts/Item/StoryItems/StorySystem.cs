@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Inventory))]
@@ -16,6 +17,7 @@ public class StorySystem : MonoBehaviour
     [SerializeField] private Transform dynamiteSpawnTransform;
     [SerializeField] private GameObject dynamitePrefab;
     [SerializeField] private GameObject bossBoat;
+    [SerializeField] private float waitBeforeFinalScene = 7f;
 
     private GameObject spawnedGhostDynamite;
     private GameObject spawnedDynamite;
@@ -40,10 +42,10 @@ public class StorySystem : MonoBehaviour
     {
         _inventoryAction.OnInteractWithStoryObject -= CheckStoryObject;
     }
-    
-    private void CheckStoryObject (Item obj)
+
+    private void CheckStoryObject(Item obj)
     {
-        switch(obj.ItemName)
+        switch (obj.ItemName)
         {
             case ItemName.Scissors:
                 storyItems.storyItems[0] = true;
@@ -60,17 +62,9 @@ public class StorySystem : MonoBehaviour
             case ItemName.UseScissors:
                 if (storyItems.storyItems[0])
                 {
-                    Instantiate(netPrefab, obj.transform.position, Quaternion.identity);
+                    // Instantiate(netPrefab, obj.transform.position, Quaternion.identity);
                     Destroy(obj.gameObject);
-                }
-                else
-                {
-                    playerEvents.OnInteractNotEnoughItems.Invoke();
-                }
-                break;
-            case ItemName.BreakPropeller:
-                if (playerAll.Inventory.ItemName == ItemName.Net)
-                {
+
                     screwRotator1.StopRotation();
                     screwRotator2.StopRotation();
                     boatWaypointMovement.enabled = false;
@@ -79,14 +73,24 @@ public class StorySystem : MonoBehaviour
                     spawnedGhostDynamite = Instantiate(dynamiteGhostPrefab, dynamiteSpawnTransform);
                     spawnedGhostDynamite.transform.localPosition = new Vector3(0f, 0f, 0.19f);
                     spawnedGhostDynamite.transform.Rotate(new Vector3(0, 90, 0));
-                    Destroy(playerAll.Inventory._activeSlot.gameObject);
-                    playerAll.Inventory._activeSlot = null;
+                    // Destroy(playerAll.Inventory._activeSlot.gameObject);
+                    // playerAll.Inventory._activeSlot = null;
                 }
                 else
                 {
                     playerEvents.OnInteractNotEnoughItems.Invoke();
                 }
                 break;
+            // case ItemName.BreakPropeller:
+            //     if (playerAll.Inventory.ItemName == ItemName.Net)
+            //     {
+
+            //     }
+            //     else
+            //     {
+            //         playerEvents.OnInteractNotEnoughItems.Invoke();
+            //     }
+            // break;
             case ItemName.PlaceDynamite:
                 if (storyItems.storyItems[1])
                 {
@@ -110,6 +114,8 @@ public class StorySystem : MonoBehaviour
                     boatRB.useGravity = true;
                     boatRB.freezeRotation = false;
                     boatRB.constraints = RigidbodyConstraints.None;
+
+                    StartCoroutine(StartFinalScene());
                 }
                 else
                 {
@@ -119,6 +125,12 @@ public class StorySystem : MonoBehaviour
             default:
                 break;
         }
-        
+    }
+    
+    IEnumerator StartFinalScene()
+    {
+        yield return new WaitForSeconds(waitBeforeFinalScene);
+
+        playerEvents.OnFinalSceneStart.Invoke();
     }
 }
