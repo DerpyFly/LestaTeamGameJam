@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1865628410512190154, guid: 2f276c681b1675d478d3f08ee5c67955, type: 3}
+      propertyPath: 'storyItems.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3715098589411305415, guid: 2f276c681b1675d478d3f08ee5c67955, type: 3}
       propertyPath: m_LocalPosition.x
       value: 720.75
@@ -422,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3715098589411305415, guid: 2f276c681b1675d478d3f08ee5c67955, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.11
+      value: -10.03
       objectReference: {fileID: 0}
     - target: {fileID: 3715098589411305415, guid: 2f276c681b1675d478d3f08ee5c67955, type: 3}
       propertyPath: m_LocalRotation.w
@@ -664,6 +668,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7493299212198604471, guid: 1f8cf338b3cb7e54d832a48d62436e9d, type: 3}
   m_PrefabInstance: {fileID: 658653293}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1545314727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1865628410512190154, guid: 2f276c681b1675d478d3f08ee5c67955, type: 3}
+  m_PrefabInstance: {fileID: 170034413}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53bb31dd9d071349a22d09614afcb13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryItems
 --- !u!1001 &1798163476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1847,6 +1862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishInNetPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 6005274981425322023, guid: b9b6702a3ca99a74686b6b3b83b3e538, type: 3}
+      propertyPath: storyItemsComponent
+      value: 
+      objectReference: {fileID: 1545314727}
     - target: {fileID: 7287898557609984307, guid: b9b6702a3ca99a74686b6b3b83b3e538, type: 3}
       propertyPath: m_LocalPosition.x
       value: 721.2

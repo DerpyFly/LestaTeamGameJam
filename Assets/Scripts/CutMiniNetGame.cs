@@ -9,6 +9,7 @@ public class CutMiniNetGame : MonoBehaviour
     [SerializeField] private WaypointMovement waypointMovement;
     [SerializeField] private Transform farWaypointTransform;
     [SerializeField] private float fishDisappearDelay = 3f;
+    [SerializeField] private StoryItems storyItemsComponent;
 
     private bool playerInRange = false;
 
@@ -43,7 +44,7 @@ public class CutMiniNetGame : MonoBehaviour
     private void Update()
     {
         // suda vstavit najatie E BUTTON
-        if (playerInRange)
+        if (playerInRange && storyItemsComponent.storyItems[0] == true)
         {
             NetCutted();
         }

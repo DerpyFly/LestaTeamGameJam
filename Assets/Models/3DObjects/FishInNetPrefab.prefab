@@ -610,6 +610,7 @@ MonoBehaviour:
   waypointMovement: {fileID: 737127932742696939}
   farWaypointTransform: {fileID: 100922637607419795}
   fishDisappearDelay: 15
+  storyItemsComponent: {fileID: 0}
 --- !u!135 &4817221252410835993
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -696,7 +697,8 @@ PrefabInstance:
       value: fishSwim
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: dc9d69b3d62755c4f96c6ad578b2fd67, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc9d69b3d62755c4f96c6ad578b2fd67, type: 3}
