@@ -21,13 +21,10 @@ public class Backpack : MonoBehaviour
 
     public List<Item> GetItem => _items.ToList();
 
-    private void Update()
-    {
-        transform.LookAt(new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z));
-    }
-
     private void FixedUpdate()
     {
+        transform.LookAt(new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z));
+
         Vector3 target = new Vector3(_player.transform.position.x, _player.transform.position.y + _deltaY, _player.transform.position.z);
 
         if ((target - transform.position).magnitude > _length && _rb.linearVelocity.magnitude < _maxSpeed)

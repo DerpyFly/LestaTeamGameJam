@@ -221,10 +221,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ceac34f2eac0f4c9155b894355f027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Backpack
-  _maxSpeed: 3
+  _maxSpeed: 10
   _minSpeed: 0.5
-  _force: 400
-  _returnForce: 400
+  _force: 700
+  _deltaY: 0.3
+  _returnForce: 1000
   _length: 1.5
   _points:
   - {fileID: 3977001753177011515}
@@ -240,7 +241,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 3
   m_LinearDamping: 0.7
-  m_AngularDamping: 0.3
+  m_AngularDamping: 0.94
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -255,5 +256,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 0
   m_CollisionDetection: 0
