@@ -24,21 +24,22 @@ public class PlayerEvents : MonoBehaviour
 
     public void EnableWindowInteract(KeyCode keyCode)
     {
-        switch (keyCode)
-        {
-            // TODO : prikrutit okna s podskazkoy
-            case KeyCode.E:
-                OnActionE?.Invoke();
-                break;
-            case KeyCode.Q:
-                OnActionQ?.Invoke();
-                break;
-        }
+        OnShowPressHint?.Invoke();
+        // switch (keyCode)
+        // {
+        //     // TODO : prikrutit okna s podskazkoy
+        //     case KeyCode.E:
+        //         OnActionE?.Invoke();
+        //         break;
+        //     case KeyCode.Q:
+        //         OnActionQ?.Invoke();
+        //         break;
+        // }
     }
 
     public void EnableWindowNotFoundItem(ItemName notFoundItem)
     {
-        
+        OnInteractNotEnoughItems?.Invoke();
     }
 
     public void DisableWindowInteract()

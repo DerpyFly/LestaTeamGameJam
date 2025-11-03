@@ -1,9 +1,12 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class TriggerMiniGame : MonoBehaviour, IInteractable
 {
     [SerializeField] WindowManager _windowManager;
     PlayerAll playerAllSave;
+
+    bool isInside = false;
     public void EndInteractable()
     {
         playerAllSave.UnlockInput();
@@ -20,20 +23,38 @@ public class TriggerMiniGame : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out PlayerAll player))
+        if (!isInside && other.CompareTag("Player"))
         {
-            if (playerAllSave == null)
-                playerAllSave = player;
-            
-            player.ViewWindowInteract(KeyCode.E);
+            if (other.gameObject.TryGetComponent(out PlayerEvents playerEvents))
+            {
+                playerEvents.OnShowPressHint?.Invoke();
+            }
         }
+
+        // if (!isInside && other.gameObject.TryGetComponent(out PlayerAll player))
+        // {
+        //     if (playerAllSave == null)
+        //         playerAllSave = player;
+
+        //     player.ViewWindowInteract(KeyCode.E);
+        // }
+        isInside = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out PlayerAll player))
+        if (isInside && other.CompareTag("Player"))
         {
-            player.ViewWindowInteract(KeyCode.None);
+            if (other.gameObject.TryGetComponent(out PlayerEvents playerEvents))
+            {
+                playerEvents.OnInteractComplete?.Invoke();
+            }
         }
+
+        // if (isInside && other.gameObject.TryGetComponent(out PlayerAll player))
+        // {
+        //     player.ViewWindowInteract(KeyCode.None);
+        // }
+        isInside = false;
     }
 }
