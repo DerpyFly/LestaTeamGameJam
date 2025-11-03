@@ -84,7 +84,6 @@ public class Inventory : MonoBehaviour
                 _visibleItem.transform.SetParent(transform);
                 _visibleItem.SetPoint(-1);
                 _visibleItem.transform.position = _activeSlotPoint.transform.position;
-                _visibleItem.transform.rotation = _activeSlotPoint.transform.rotation;
                 _visibleItem = null;
             }
         }

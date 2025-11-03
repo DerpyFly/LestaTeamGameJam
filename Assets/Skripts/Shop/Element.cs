@@ -6,19 +6,17 @@ public class Element : MonoBehaviour
 {
     [SerializeField] private TMP_Text _textPrice;
     [SerializeField] private Button _button;
-    [SerializeField] private Image _icon;
 
     private ShopUI _shopUI;
     private int _id;
 
     public int Id => _id;
 
-    public void Init(ShopUI shopUI, int id, int price, Sprite icon)
+    public void Init(ShopUI shopUI, int id, int price)
     {
         _shopUI = shopUI;
         _id = id;
 
-        _icon.sprite = icon;
         _textPrice.text = price.ToString();
     }
 

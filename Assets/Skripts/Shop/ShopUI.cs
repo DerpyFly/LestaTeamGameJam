@@ -19,13 +19,13 @@ public class ShopUI : MonoBehaviour
     private Shop _shop;
 
     private List<ShopElement> _shopElements = new();
-    
+
     private void Awake()
     {
         for (int i = 0; i < _shopElementsPrefab.Count; i++)
         {
             Element newElement = Instantiate(_shopElementsPrefab[i].Element, _content.transform);
-            newElement.Init(this, i, _shopElementsPrefab[i].Price, _shopElementsPrefab[i].Icon);
+            newElement.Init(this, i, _shopElementsPrefab[i].Price);
             ShopElement newShopElements = new()
             {
                 Element = newElement,
@@ -74,9 +74,7 @@ public class ShopUI : MonoBehaviour
             shopElement.Element.DisableButton();
 
             if(id + 1 < _shopElements.Count)
-            {
                 _shopElements[id + 1].Element.EnableButton();
-            }
 
             ViewInventory();
         }
@@ -88,6 +86,5 @@ public class ShopElement
 {
     public Element Element;
     public Item PrefabItem;
-    public Sprite Icon;
     public int Price;
 }

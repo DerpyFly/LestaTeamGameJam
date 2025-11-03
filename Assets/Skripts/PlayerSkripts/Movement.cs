@@ -21,18 +21,19 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         playerInput = new PlayerInputActions();
-
+        playerInput.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        playerInput.Player.Move.canceled += ctx => movementInput = Vector2.zero;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 
     void OnEnable()
     {
-        EnablePlayerActionMap();
+        playerInput.Player.Enable();
     }
 
     void OnDisable()
     {
-        DisablePlayerActionMap();
+        playerInput.Player.Disable();
     }
 
     void Start()
@@ -115,17 +116,10 @@ public class Movement : MonoBehaviour
         }
     }
     
-    public void EnablePlayerActionMap()
+    private Vector2 GetPointerInput()
     {
-        playerInput.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
-        playerInput.Player.Move.canceled += ctx => movementInput = Vector2.zero;
-        playerInput.Player.Enable();
-    }
-
-    public void DisablePlayerActionMap()
-    {
-        playerInput.Player.Move.performed -= ctx => movementInput = ctx.ReadValue<Vector2>();
-        playerInput.Player.Move.canceled -= ctx => movementInput = Vector2.zero;
-        playerInput.Player.Disable();
+        Vector3 mousePos = playerInput.Player.Look.ReadValue<Vector2>();
+        mousePos.z = Camera.main.nearClipPlane;
+        return Camera.main.ScreenToWorldPoint(mousePos);
     }
 }
