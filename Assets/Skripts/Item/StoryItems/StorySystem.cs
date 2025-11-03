@@ -20,6 +20,10 @@ public class StorySystem : MonoBehaviour
     [SerializeField] private GameObject explosionSound;
     [SerializeField] private float waitBeforeFinalScene = 7f;
 
+    [SerializeField] GameObject scissorsCanv;
+    [SerializeField] GameObject tntCanv;
+    [SerializeField] GameObject lighterCanv;
+
     private GameObject spawnedGhostDynamite;
     private GameObject spawnedDynamite;
 
@@ -51,14 +55,17 @@ public class StorySystem : MonoBehaviour
             case ItemName.Scissors:
                 storyItems.storyItems[0] = true;
                 Destroy(obj.gameObject);
+                scissorsCanv.SetActive(false);
                 break;
             case ItemName.Dynamite:
                 storyItems.storyItems[1] = true;
                 Destroy(obj.gameObject);
+                tntCanv.SetActive(false);
                 break;
             case ItemName.Lighter:
                 storyItems.storyItems[2] = true;
                 Destroy(obj.gameObject);
+                lighterCanv.SetActive(false);
                 break;
             case ItemName.UseScissors:
                 if (storyItems.storyItems[0])

@@ -7,6 +7,7 @@ public class TrashUI : MonoBehaviour
     [SerializeField] private TMP_Text _textCountTrash;
     [SerializeField] private string _textNameLine = "Собранно мусора: ";
     [SerializeField] private WindowManager _windowManager;
+    [SerializeField] private GameObject starCanvas;
 
     private void OnEnable()
     {
@@ -35,6 +36,7 @@ public class TrashUI : MonoBehaviour
             _textCountTrash.enabled = true;
 
         _textCountTrash.text = _textNameLine + newCount.ToString() + " из 7";
+        starCanvas.SetActive(true);
 
         if(newCount >= 7)
         {
