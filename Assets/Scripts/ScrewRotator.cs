@@ -6,13 +6,11 @@ public class ScrewRotator : MonoBehaviour
 
     [Header("Rotation Settings")]
     public RotationAxis rotationAxis = RotationAxis.Z;
-    public float rotationSpeed = 90f; // градусов в секунду
+    public float rotationSpeed = 90f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public bool clockwise = true;
 
     [Header("State Control")]
     public bool isRotating = true;
-
- 
 
     void Update()
     {
@@ -41,7 +39,7 @@ public class ScrewRotator : MonoBehaviour
         }
     }
 
-    // Публичные методы для управления из других скриптов
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public void StartRotation()
     {
         isRotating = true;

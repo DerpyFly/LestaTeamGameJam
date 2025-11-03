@@ -6,7 +6,6 @@ public class Item : MonoBehaviour
     [SerializeField] private TypeItem _typeItem;
     [SerializeField] private ItemName _itemName;
     [SerializeField] private int _price = 10;
-
     private bool _isFree = true;
     private int _id;
 
