@@ -5,9 +5,28 @@ public class WindowManager : MonoBehaviour
     [SerializeField] private ShopUI _shopUI;
     [SerializeField] private BankUI _bankUI;
     [SerializeField] private FishingController _miniGameUI;
+    [SerializeField] private GameObject _showBtnHintUI;
+    [SerializeField] private GameObject _showMissingItemtUI;
 
 
     private IInteractable _lastInteractable;
+    private PlayerEvents playerEvents;
+
+    void Start()
+    {
+        playerEvents = FindAnyObjectByType<PlayerEvents>();
+        playerEvents.OnShowPressHint.AddListener(BtnHintUiEnable);
+        playerEvents.OnInteractComplete.AddListener(BtnHintUiDisable);
+
+        _showBtnHintUI.SetActive(false);
+        _showMissingItemtUI.SetActive(false);
+    }
+
+    void OnDisable()
+    {
+        playerEvents.OnShowPressHint.RemoveAllListeners();
+        playerEvents.OnInteractComplete.RemoveAllListeners();
+    }
 
     public void ShopUiEnable(IInteractable interactable, PlayerAll player)
     {
@@ -48,4 +67,20 @@ public class WindowManager : MonoBehaviour
     {
     }
 
+    public void BtnHintUiEnable()
+    {
+        _showBtnHintUI.SetActive(true);
+    }
+    public void BtnHintUiDisable()
+    {
+        _showBtnHintUI.SetActive(false);
+    }
+    public void MissingItemtUiEnable()
+    {
+        _showMissingItemtUI.SetActive(true);
+    }
+    public void MissingItemtUiDisable()
+    {
+        _showMissingItemtUI.SetActive(false);
+    }
 }
