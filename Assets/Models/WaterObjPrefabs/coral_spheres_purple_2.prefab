@@ -81,7 +81,10 @@ PrefabInstance:
       addedObject: {fileID: -4811189793160548449}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d0a5af1f327deb4e979d088878cf43e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -7126228369565405179}
+      addedObject: {fileID: 8068970310178525569}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d0a5af1f327deb4e979d088878cf43e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1879027905200139418}
   m_SourcePrefab: {fileID: 100100000, guid: 3d0a5af1f327deb4e979d088878cf43e, type: 3}
 --- !u!1 &7006802305933489068 stripped
 GameObject:
@@ -113,8 +116,8 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
---- !u!64 &-7126228369565405179
-MeshCollider:
+--- !u!135 &8068970310178525569
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -131,10 +134,30 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4168818437449957125, guid: 3d0a5af1f327deb4e979d088878cf43e, type: 3}
+  serializedVersion: 3
+  m_Radius: 0.19
+  m_Center: {x: -0.013502061, y: 0.26085854, z: -0.04656349}
+--- !u!65 &1879027905200139418
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006802305933489068}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.34846258, y: 0.15043001, z: 0.44691277}
+  m_Center: {x: -0.04600715, y: 0.057150237, z: -0.059379637}
 --- !u!23 &8808431616841093753 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 3d0a5af1f327deb4e979d088878cf43e, type: 3}
