@@ -15,6 +15,9 @@ public class PlayerEvents : MonoBehaviour
     public UnityEvent OnAfterRespawn; // сразу после телепорта
     public UnityEvent OnDeathComplete; // когда вся последовательность завершена
 
+    [Header("Final")]
+    public UnityEvent OnFinalSceneStart; // Запускатся когда выполняется последний квест
+
     //действие для отображения окошка "нажмите E"
     public event UnityAction OnActionE;
     //действие для отображения окошка "нажмите Q"
