@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
     public ItemName ItemName => _activeSlot != null ? _activeSlot.ItemName : ItemName.None;
 
     public event UnityAction<Item> PickUpGarbage;
+    public event UnityAction<Item> OnInteractWithStoryObject;
 
     private void Awake()
     {
@@ -64,13 +65,20 @@ public class Inventory : MonoBehaviour
     {
         if (_visibleItem != null && _keyboard.eKey.wasPressedThisFrame)
         {
-            if(_visibleItem.TypeItem == TypeItem.GarbageItem)
+            if (_visibleItem.TypeItem == TypeItem.GarbageItem)
             {
                 PickUpGarbage?.Invoke(_visibleItem);
                 _visibleItem.SetPoint(-1);
                 _visibleItem = null;
 
                 return;
+            }
+
+            if (_visibleItem.TypeItem == TypeItem.QuestItem)
+            {
+                OnInteractWithStoryObject?.Invoke(_visibleItem);
+                _visibleItem.SetPoint(-1);
+                _visibleItem = null;
             }
 
             if(_visibleItem.TypeItem == TypeItem.PriceItem)

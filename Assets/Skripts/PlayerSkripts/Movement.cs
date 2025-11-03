@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private PlayerInputActions playerInput;
+    public PlayerInputActions playerInput;
     [SerializeField] private Rigidbody rb;
 
     [SerializeField] private float moveSpeed = 10f;
