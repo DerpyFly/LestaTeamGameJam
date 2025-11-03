@@ -71,6 +71,7 @@ public class StartMenuUI : MonoBehaviour
 
     private void Go()
     {
+        _comics.gameObject.SetActive(false);
         _movement.SpawnPosition();
         _movement.EnablePlayerActionMap();
     }
