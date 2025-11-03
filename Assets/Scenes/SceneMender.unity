@@ -5903,6 +5903,14 @@ PrefabInstance:
       propertyPath: _inventoryAction
       value: 
       objectReference: {fileID: 1523437057}
+    - target: {fileID: 4048136146153569771, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _showBtnHintUI
+      value: 
+      objectReference: {fileID: 1437717049}
+    - target: {fileID: 4048136146153569771, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _showMissingItemtUI
+      value: 
+      objectReference: {fileID: 653160008}
     - target: {fileID: 4181002678199452742, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -6274,6 +6282,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8252f6bef2c25a046a83271a4c536e06, type: 3}
+--- !u!1 &653160008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1182447764292679000, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+  m_PrefabInstance: {fileID: 600603882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &662196523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13357,6 +13370,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5780799742361451279, guid: 4e514097e67bca248b4b78bd8db1a886, type: 3}
   m_PrefabInstance: {fileID: 1432309117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1437717049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1915072475576526007, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+  m_PrefabInstance: {fileID: 600603882}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1449518422
 PrefabInstance:
