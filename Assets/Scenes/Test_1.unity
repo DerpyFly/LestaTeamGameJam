@@ -2416,6 +2416,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 528928954526717696, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00022888184
+      objectReference: {fileID: 0}
     - target: {fileID: 2387245703213210113, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2434,8 +2438,40 @@ PrefabInstance:
       objectReference: {fileID: 148914397}
     - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _shopElementsPrefab.Array.size
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[0].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 2fc121c60458fc4449e793b6510f0aa0, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[1].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 375f4888cf451b54bbe778369bfea9ad, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[2].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: ca98336f8229b3d478e7dc0ff7c10329, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[3].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 06194cb6dfd195e49bc3971845be9825, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[4].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 45b3c60386748fb45a56b9ff2df1d649, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[5].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: ba502eb38aeda244fb3e529f2d7feccc, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[6].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 7fc6845c1df414848b46767fd049e299, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[7].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 7fc6845c1df414848b46767fd049e299, type: 3}
     - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _shopElementsPrefab.Array.data[0].Price
       value: 2
@@ -2449,17 +2485,57 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[3].Price
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[4].Price
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[5].Price
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[6].Price
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[7].Price
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _shopElementsPrefab.Array.data[0].Element
       value: 
-      objectReference: {fileID: 8205990569933806738, guid: 6021d6285e404b043a967d4d23949f5c, type: 3}
+      objectReference: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
     - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _shopElementsPrefab.Array.data[1].Element
       value: 
-      objectReference: {fileID: 8205990569933806738, guid: 6021d6285e404b043a967d4d23949f5c, type: 3}
+      objectReference: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
     - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _shopElementsPrefab.Array.data[2].Element
       value: 
-      objectReference: {fileID: 8205990569933806738, guid: 6021d6285e404b043a967d4d23949f5c, type: 3}
+      objectReference: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[3].Element
+      value: 
+      objectReference: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[4].Element
+      value: 
+      objectReference: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[5].Element
+      value: 
+      objectReference: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[6].Element
+      value: 
+      objectReference: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[7].Element
+      value: 
+      objectReference: {fileID: 1945130100395910412, guid: e46c61fcffee8e34e8b676dcc9750797, type: 3}
     - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _shopElementsPrefab.Array.data[0].PrefabItem
       value: 
@@ -2470,6 +2546,26 @@ PrefabInstance:
       objectReference: {fileID: 6479835018124711094, guid: ef3dde6754ae0504e9d3e6a4a1767d32, type: 3}
     - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _shopElementsPrefab.Array.data[2].PrefabItem
+      value: 
+      objectReference: {fileID: 6479835018124711094, guid: ef3dde6754ae0504e9d3e6a4a1767d32, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[3].PrefabItem
+      value: 
+      objectReference: {fileID: 6479835018124711094, guid: ef3dde6754ae0504e9d3e6a4a1767d32, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[4].PrefabItem
+      value: 
+      objectReference: {fileID: 6479835018124711094, guid: ef3dde6754ae0504e9d3e6a4a1767d32, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[5].PrefabItem
+      value: 
+      objectReference: {fileID: 6479835018124711094, guid: ef3dde6754ae0504e9d3e6a4a1767d32, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[6].PrefabItem
+      value: 
+      objectReference: {fileID: 6479835018124711094, guid: ef3dde6754ae0504e9d3e6a4a1767d32, type: 3}
+    - target: {fileID: 5723691734560022896, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[7].PrefabItem
       value: 
       objectReference: {fileID: 6479835018124711094, guid: ef3dde6754ae0504e9d3e6a4a1767d32, type: 3}
     - target: {fileID: 6578073028422140885, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
