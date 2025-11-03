@@ -19,6 +19,7 @@ public class EndMenuUI : MonoBehaviour
         _vin.gameObject.SetActive(false);
         _quitGame.gameObject.SetActive(false);
         _comics.gameObject.SetActive(false);
+        _playerEvents.OnFinalSceneStart.AddListener(startEndGame);
     }
     
     public void startEndGame()

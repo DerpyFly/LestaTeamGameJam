@@ -49,4 +49,5 @@ public class PlayerEvents : MonoBehaviour
     {
         OnCloseWindow?.Invoke();
     }
+
 }
