@@ -21,7 +21,7 @@ public class EndMenuUI : MonoBehaviour
         _comics.gameObject.SetActive(false);
     }
     
-    private void startEndGame()
+    public void startEndGame()
     {
         StartGameSequence();
     }

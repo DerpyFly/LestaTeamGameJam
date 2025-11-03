@@ -800,6 +800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5833229792634063919}
+  - component: {fileID: 6425944322090414779}
   m_Layer: 0
   m_Name: EndUI
   m_TagString: Untagged
@@ -829,6 +830,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6425944322090414779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636964973293412884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b3eca27755f574bafd8c5b6e41f097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EndMenuUI
+  _quitGame: {fileID: 3913984712138630456}
+  _comics: {fileID: 3044058692669332474}
+  _vin: {fileID: 5689600167737639259}
+  _playerEvents: {fileID: 0}
+  _movement: {fileID: 0}
 --- !u!1 &4880618507401819108
 GameObject:
   m_ObjectHideFlags: 0
