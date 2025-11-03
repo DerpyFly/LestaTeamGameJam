@@ -4,6 +4,7 @@ using UnityEngine;
 public class TriggerMiniGame : MonoBehaviour, IInteractable
 {
     [SerializeField] WindowManager _windowManager;
+    // [SerializeField] PlayerEvents playerEvents;
     PlayerAll playerAllSave;
 
     bool isInside = false;
@@ -47,6 +48,9 @@ public class TriggerMiniGame : MonoBehaviour, IInteractable
         {
             if (other.gameObject.TryGetComponent(out PlayerEvents playerEvents))
             {
+                other.gameObject.TryGetComponent(out PlayerAll player);
+                player.UnlockInput();
+                player.CloseInteract();
                 playerEvents.OnInteractComplete?.Invoke();
             }
         }
