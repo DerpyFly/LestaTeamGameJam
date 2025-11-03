@@ -18,6 +18,7 @@ public class FishingTempGame : MonoBehaviour
 
     [SerializeField] private ClickFish2Game clickFish2Game;
     [SerializeField] private GameObject parentObject;
+    [SerializeField] private WindowManager _windowManager;
     private float targetValue;
     private bool isActive = false;
     private bool movingRight = true;
@@ -119,7 +120,6 @@ public class FishingTempGame : MonoBehaviour
         Debug.Log($"Провал!");
         isActive = false;
         StartCoroutine(FailFeedback());
-
     }
 
     private IEnumerator SuccessFeedback()
@@ -145,6 +145,7 @@ public class FishingTempGame : MonoBehaviour
 
     public void CloseGame()
     {
+        _windowManager.MinigameUiDisable();
         parentObject.SetActive(false);
     }
 }

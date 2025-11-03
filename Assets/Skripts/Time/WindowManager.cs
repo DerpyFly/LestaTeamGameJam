@@ -4,7 +4,7 @@ public class WindowManager : MonoBehaviour
 {
     [SerializeField] private ShopUI _shopUI;
     [SerializeField] private BankUI _bankUI;
-    [SerializeField] private FishingController _miniGameUI;
+    [SerializeField] private GameObject _miniGameUI;
     [SerializeField] private GameObject _showBtnHintUI;
     [SerializeField] private GameObject _showMissingItemtUI;
 
@@ -50,18 +50,19 @@ public class WindowManager : MonoBehaviour
 
         _bankUI.gameObject.SetActive(true);
 
-        _miniGameUI.gameObject.SetActive(false);
+        _miniGameUI.SetActive(false);
 
         _shopUI.gameObject.SetActive(false);
     }
 
-    public void MinigameUiEnable()
+    public void MinigameUiEnable(IInteractable interactable)
     {
         //_lastInteractable.EndInteractable();
+        _lastInteractable = interactable;
 
         _bankUI.gameObject.SetActive(false);
 
-        _miniGameUI.gameObject.SetActive(true);
+        _miniGameUI.SetActive(true);
 
         _shopUI.gameObject.SetActive(false);
 
@@ -73,6 +74,7 @@ public class WindowManager : MonoBehaviour
     public void MinigameUiDisable()
     {
         //_lastInteractable.EndInteractable();
+        _lastInteractable.EndInteractable();
 
         _bankUI.gameObject.SetActive(true);
 
@@ -80,7 +82,7 @@ public class WindowManager : MonoBehaviour
 
         _shopUI.gameObject.SetActive(false);
 
-        BtnHintUiDisable();
+        BtnHintUiEnable();
 
         MissingItemtUiDisable();
     }
