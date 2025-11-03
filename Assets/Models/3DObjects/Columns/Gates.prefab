@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1519706961958899814}
   - component: {fileID: 2495274905734779308}
   - component: {fileID: 5212146975671796163}
+  - component: {fileID: 7621745025204295955}
   m_Layer: 0
   m_Name: Gates
   m_TagString: Untagged
@@ -89,3 +90,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7621745025204295955
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699694249392484735}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.021897664, y: 0.002599755, z: 0.031128792}
+  m_Center: {x: 0, y: 0, z: 0.015564396}
