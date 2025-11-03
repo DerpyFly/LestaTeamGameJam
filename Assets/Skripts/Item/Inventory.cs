@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
     private Item _activeSlot = null;
 
     private Keyboard _keyboard;
+    private StoryItems _storyItems;
 
     public int CountPriceItem => _backpack.GetItem.Where(item => item.TypeItem == TypeItem.PriceItem).Count();
 
@@ -28,6 +29,7 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         _keyboard = Keyboard.current;
+        _storyItems = GetComponent<StoryItems>();
         _backpack.Init(this);
     }
 

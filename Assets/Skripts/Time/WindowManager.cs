@@ -7,6 +7,7 @@ public class WindowManager : MonoBehaviour
     [SerializeField] private GameObject _miniGameUI;
     [SerializeField] private GameObject _showBtnHintUI;
     [SerializeField] private GameObject _showMissingItemtUI;
+    [SerializeField] private Notification _notification;
 
     private IInteractable _lastInteractable;
     private PlayerEvents playerEvents;
@@ -106,5 +107,10 @@ public class WindowManager : MonoBehaviour
     public void MissingItemtUiDisable()
     {
         _showMissingItemtUI.SetActive(false);
+    }
+
+    public void StartNotification()
+    {
+        _notification.StartAnim();
     }
 }
