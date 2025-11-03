@@ -11,7 +11,7 @@ public class TrashUI : MonoBehaviour
 
     private void OnEnable()
     {
-        if( _trashSystem != null )
+        if (_trashSystem != null)
             _trashSystem.ChangeTrashCount += OnChangeTrashCount;
     }
 
@@ -25,7 +25,7 @@ public class TrashUI : MonoBehaviour
     {
         if (_trashSystem == null)
             Debug.LogError("TrashSystem is NULL!");
-        
+
         if (_textCountTrash == null)
             Debug.LogError("Text is NULL!");
     }
@@ -36,9 +36,12 @@ public class TrashUI : MonoBehaviour
             _textCountTrash.enabled = true;
 
         _textCountTrash.text = _textNameLine + newCount.ToString() + " из 7";
-        starCanvas.SetActive(true);
+        if (starCanvas != null)
+        {
+            starCanvas.SetActive(true);
+        }
 
-        if(newCount >= 7)
+        if (newCount >= 7)
         {
             _windowManager.StartNotification();
         }
