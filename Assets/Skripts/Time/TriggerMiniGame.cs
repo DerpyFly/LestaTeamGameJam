@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 
 public class TriggerMiniGame : MonoBehaviour, IInteractable
@@ -19,7 +18,7 @@ public class TriggerMiniGame : MonoBehaviour, IInteractable
     {
         playerAllSave = playerAll;
         playerAllSave.BlockInput();
-        _windowManager.MinigameUiEnable();
+        _windowManager.MinigameUiEnable(this);
     }
 
     private void OnTriggerEnter(Collider other)
