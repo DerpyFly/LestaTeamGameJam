@@ -25,7 +25,7 @@ public class ShopUI : MonoBehaviour
         for (int i = 0; i < _shopElementsPrefab.Count; i++)
         {
             Element newElement = Instantiate(_shopElementsPrefab[i].Element, _content.transform);
-            newElement.Init(this, i, _shopElementsPrefab[i].Price);
+            newElement.Init(this, i, _shopElementsPrefab[i].Price, _shopElementsPrefab[i].Icon);
             ShopElement newShopElements = new()
             {
                 Element = newElement,
@@ -86,5 +86,6 @@ public class ShopElement
 {
     public Element Element;
     public Item PrefabItem;
+    public Sprite Icon;
     public int Price;
 }
