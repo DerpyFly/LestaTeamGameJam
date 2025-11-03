@@ -22,6 +22,6 @@ public class Torche : MonoBehaviour, IInteractable
 
     public void Interact(PlayerAll playerAll)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

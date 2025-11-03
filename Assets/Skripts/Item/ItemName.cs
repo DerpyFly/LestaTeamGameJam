@@ -6,5 +6,4 @@ public enum ItemName
     Propeller,
     DynamitePlace,
     Dynamite,
-    Lighter,
 }
