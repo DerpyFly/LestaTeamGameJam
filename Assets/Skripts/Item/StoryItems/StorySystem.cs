@@ -17,6 +17,7 @@ public class StorySystem : MonoBehaviour
     [SerializeField] private Transform dynamiteSpawnTransform;
     [SerializeField] private GameObject dynamitePrefab;
     [SerializeField] private GameObject bossBoat;
+    [SerializeField] private GameObject explosionSound;
     [SerializeField] private float waitBeforeFinalScene = 7f;
 
     private GameObject spawnedGhostDynamite;
@@ -129,6 +130,8 @@ public class StorySystem : MonoBehaviour
     
     IEnumerator StartFinalScene()
     {
+        explosionSound.SetActive(true);
+
         yield return new WaitForSeconds(waitBeforeFinalScene);
 
         playerEvents.OnFinalSceneStart.Invoke();
