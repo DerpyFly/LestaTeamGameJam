@@ -69,7 +69,7 @@ public class Weight : MonoBehaviour, IInteractable
                 player.ViewWindowInteract(KeyCode.E, ItemName.Weight);
         }
     }
-
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.TryGetComponent(out PlayerAll player) && _needCountWeight > 0)

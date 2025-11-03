@@ -20,6 +20,9 @@ public class Torches : MonoBehaviour
         _torcheCount--;
 
         if (_torcheCount == 0)
+        {
             OnFinalPearl?.Invoke();
+            Debug.Log("Final!!!");
+        }
     }
 }

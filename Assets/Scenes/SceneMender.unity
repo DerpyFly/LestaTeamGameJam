@@ -6355,6 +6355,14 @@ PrefabInstance:
       propertyPath: _bank
       value: 
       objectReference: {fileID: 1265150271}
+    - target: {fileID: 845512567147093927, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 845512567147093927, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[1].Icon
+      value: 
+      objectReference: {fileID: 1784066574, guid: 9961d8353c5240e4082bd110b038a175, type: 3}
     - target: {fileID: 2557466169094808943, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _inventoryAction
       value: 

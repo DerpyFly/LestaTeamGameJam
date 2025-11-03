@@ -6,4 +6,5 @@ public enum ItemName
     Propeller,
     DynamitePlace,
     Dynamite,
+    Pearl,
 }
