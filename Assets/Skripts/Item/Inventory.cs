@@ -82,6 +82,8 @@ public class Inventory : MonoBehaviour
                 OnInteractWithStoryObject?.Invoke(_visibleItem);
                 _visibleItem.SetPoint(-1);
                 _visibleItem = null;
+
+                return;
             }
 
             if(_visibleItem.TypeItem == TypeItem.PriceItem)
