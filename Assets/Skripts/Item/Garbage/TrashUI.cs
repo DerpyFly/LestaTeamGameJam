@@ -6,6 +6,7 @@ public class TrashUI : MonoBehaviour
     [SerializeField] private TrashSystem _trashSystem;
     [SerializeField] private TMP_Text _textCountTrash;
     [SerializeField] private string _textNameLine = "Собранно мусора: ";
+    [SerializeField] private WindowManager _windowManager;
 
     private void OnEnable()
     {
@@ -34,5 +35,10 @@ public class TrashUI : MonoBehaviour
             _textCountTrash.enabled = true;
 
         _textCountTrash.text = _textNameLine + newCount.ToString() + " из 7";
+
+        if(newCount >= 7)
+        {
+            _windowManager.StartNotification();
+        }
     }
 }
