@@ -5712,6 +5712,18 @@ PrefabInstance:
       propertyPath: _bank
       value: 
       objectReference: {fileID: 1265150271}
+    - target: {fileID: 845512567147093927, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[0].PrefabItem
+      value: 
+      objectReference: {fileID: 8226719390084127664, guid: 5d1223f2f5f28bd42abaa87630170597, type: 3}
+    - target: {fileID: 845512567147093927, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[1].PrefabItem
+      value: 
+      objectReference: {fileID: 6966822466490871527, guid: f0774281b42b57c40834b2923322b124, type: 3}
+    - target: {fileID: 845512567147093927, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _shopElementsPrefab.Array.data[2].PrefabItem
+      value: 
+      objectReference: {fileID: 8991916344933672454, guid: d025ae68b3ae28d469cf62897112bc41, type: 3}
     - target: {fileID: 2381542063528830643, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: rewardSpawnPoint
       value: 
@@ -11818,6 +11830,10 @@ PrefabInstance:
       propertyPath: _inventoryAction
       value: 
       objectReference: {fileID: 1523437057}
+    - target: {fileID: 7499842926969532211, guid: a725172beb3984044b98a3a4b8ec2990, type: 3}
+      propertyPath: _startMoney
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
