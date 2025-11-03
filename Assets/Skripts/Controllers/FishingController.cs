@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 
 public class FishingController : MonoBehaviour
@@ -36,7 +37,10 @@ public class FishingController : MonoBehaviour
     private RectTransform _greenzoneRectTransform;
 
     private bool gamestart;
-    private float _clickCount = 0; 
+    private float _clickCount = 0;
+
+    private PlayerAll _player;
+
 
     private void OnEnable()
     {
