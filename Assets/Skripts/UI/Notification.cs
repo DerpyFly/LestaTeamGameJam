@@ -16,11 +16,8 @@ public class Notification : MonoBehaviour
 
     private IEnumerator Anim()
     {
-        gameObject.SetActive(false);
-
         while (_timeLife >= 0)
         {
-            transform.position += Vector3.up * _deltaPos;
             yield return null;
 
             _timeLife -= Time.deltaTime;

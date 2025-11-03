@@ -111,6 +111,7 @@ public class WindowManager : MonoBehaviour
 
     public void StartNotification()
     {
+        _notification.gameObject.SetActive(true);
         _notification.StartAnim();
     }
 }
