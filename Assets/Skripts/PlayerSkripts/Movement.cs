@@ -1,9 +1,10 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
     public PlayerInputActions playerInput;
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] public Rigidbody rb;
 
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float acceleration = 10f;
@@ -11,6 +12,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private bool rotateToForwardOnly = true;
     [SerializeField] private float forwardRotateThreshold = 0.1f;
     [SerializeField] private float rotationSmoothTime = 0.12f;
+
+    [SerializeField] private CinemachineCamera _cam;
+    [SerializeField] private GameObject SpawnPoint;
 
     private Vector2 movementInput;
     private Transform cameraTransform;
@@ -23,9 +27,11 @@ public class Movement : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 
+
+
     void OnEnable()
     {
-        EnablePlayerActionMap();
+        
     }
 
     void OnDisable()
@@ -37,6 +43,13 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         cameraTransform = Camera.main.transform;
+        DisablePlayerActionMap();
+        _cam.gameObject.SetActive(false);
+    }
+    public void SpawnPosition()
+    {
+        rb.gameObject.transform.position = SpawnPoint.transform.position;
+        rb.gameObject.transform.rotation = SpawnPoint.transform.rotation;
     }
 
     void FixedUpdate()
@@ -115,6 +128,7 @@ public class Movement : MonoBehaviour
 
     public void EnablePlayerActionMap()
     {
+        _cam.gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false;
         playerInput.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
@@ -124,6 +138,7 @@ public class Movement : MonoBehaviour
 
     public void DisablePlayerActionMap()
     {
+        _cam.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         playerInput.Player.Move.performed -= ctx => movementInput = ctx.ReadValue<Vector2>();
