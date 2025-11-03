@@ -32,6 +32,8 @@ public class Boat : MonoBehaviour
 
     private IEnumerator OnPeople()
     {
+        _onPeople.transform.SetParent(null);
+
         yield return new WaitForSeconds(_timeWait);
 
         _offPeople.SetActive(false);
