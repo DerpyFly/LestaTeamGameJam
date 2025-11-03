@@ -18,6 +18,7 @@ public class StorySystem : MonoBehaviour
     [SerializeField] private GameObject dynamitePrefab;
     [SerializeField] private GameObject bossBoat;
     [SerializeField] private GameObject explosionSound;
+    [SerializeField] private GameObject endMenuUI;
     [SerializeField] private float waitBeforeFinalScene = 7f;
 
     [SerializeField] GameObject scissorsCanv;
@@ -141,6 +142,9 @@ public class StorySystem : MonoBehaviour
 
         yield return new WaitForSeconds(waitBeforeFinalScene);
 
-        playerEvents.OnFinalSceneStart.Invoke();
+        gameObject.GetComponent<Movement>().DisablePlayerActionMap();
+        endMenuUI.SetActive(true);
+        endMenuUI.GetComponent<EndMenuUI>().StartEndGame();
+        // playerEvents.OnFinalSceneStart.Invoke();
     }
 }

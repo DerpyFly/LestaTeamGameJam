@@ -19,21 +19,23 @@ public class EndMenuUI : MonoBehaviour
         _vin.gameObject.SetActive(false);
         _quitGame.gameObject.SetActive(false);
         _comics.gameObject.SetActive(false);
-        _playerEvents.OnFinalSceneStart.AddListener(startEndGame);
+        _playerEvents.OnFinalSceneStart.AddListener(StartEndGame);
     }
     
-    public void startEndGame()
+    public void StartEndGame()
     {
-        StartGameSequence();
+        StartCoroutine(StartGameSequence());
     }
 
     private IEnumerator StartGameSequence()
     {
+        Debug.Log("START END SCENE");
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(VignetteShows(0f));
         yield return new WaitForSeconds(1f);
         _comics.gameObject.SetActive(true);
         yield return StartCoroutine(VignetteShows(1f));
+        yield return new WaitForSeconds(6f);
         _quitGame.gameObject.SetActive(true);
     }
 
