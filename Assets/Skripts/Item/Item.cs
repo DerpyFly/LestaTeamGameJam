@@ -51,6 +51,20 @@ public class Item : MonoBehaviour
         _id = id;
     }
 
+    public void SetQuestPoint(int id)
+    {
+        _isFree = false;
+        //_collider.enabled = false;
+
+        if(_rb != null)
+        {
+            _rb.isKinematic = true;
+            _rb.constraints = RigidbodyConstraints.FreezePositionY;
+        }
+
+        _id = id;
+    }
+
     public int DropPoint()
     {
         _isFree = true;

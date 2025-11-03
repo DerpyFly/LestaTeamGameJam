@@ -10,12 +10,12 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject _dropPoint;
     [SerializeField] private GameObject _activeSlotPoint;
     [SerializeField] private Backpack _backpack;
+    [SerializeField] private StoryItems _storyItems;
 
     private Item _visibleItem;
     public Item _activeSlot = null;
 
     private Keyboard _keyboard;
-    private StoryItems _storyItems;
 
     public int CountPriceItem => _backpack.GetItem.Where(item => item.TypeItem == TypeItem.PriceItem).Count();
 
@@ -80,9 +80,25 @@ public class Inventory : MonoBehaviour
             if (_visibleItem.TypeItem == TypeItem.QuestItem)
             {
                 OnInteractWithStoryObject?.Invoke(_visibleItem);
-                _visibleItem.SetPoint(-1);
-                _visibleItem = null;
 
+                // switch (this.ItemName)
+                // {
+                //     case ItemName.UseScissors:
+                //         if (!_storyItems.storyItems[0])
+                //         {
+                //             player
+                //         }
+                //         break;
+                //     case ItemName.BreakPropeller:
+                //     case ItemName.PlaceDynamite:
+                //     case ItemName.Boom:
+                //         _visibleItem.SetQuestPoint(-1);
+                //         break;
+                //     default:
+                //         _visibleItem.SetPoint(-1);
+                //         break;
+                // }
+                _visibleItem = null;
                 return;
             }
 

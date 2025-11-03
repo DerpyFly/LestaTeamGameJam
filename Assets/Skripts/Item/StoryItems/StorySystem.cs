@@ -6,6 +6,7 @@ public class StorySystem : MonoBehaviour
     [SerializeField] private Inventory _inventoryAction;
     [SerializeField] private StoryItems storyItems;
     [SerializeField] private PlayerAll playerAll;
+    [SerializeField] private PlayerEvents playerEvents;
     [SerializeField] private GameObject netPrefab;
     [SerializeField] private GameObject netOnPropeller;
     [SerializeField] private ScrewRotator screwRotator1;
@@ -27,6 +28,8 @@ public class StorySystem : MonoBehaviour
             storyItems = GetComponent<StoryItems>();
         if (playerAll == null)
             playerAll = GetComponent<PlayerAll>();
+        if (playerEvents == null)
+            playerEvents = GetComponent<PlayerEvents>();
     }
     private void OnEnable()
     {
@@ -60,6 +63,10 @@ public class StorySystem : MonoBehaviour
                     Instantiate(netPrefab, obj.transform.position, Quaternion.identity);
                     Destroy(obj.gameObject);
                 }
+                else
+                {
+                    playerEvents.OnInteractNotEnoughItems.Invoke();
+                }
                 break;
             case ItemName.BreakPropeller:
                 if (playerAll.Inventory.ItemName == ItemName.Net)
@@ -73,7 +80,11 @@ public class StorySystem : MonoBehaviour
                     spawnedGhostDynamite.transform.localPosition = new Vector3(0f, 0f, 0.19f);
                     spawnedGhostDynamite.transform.Rotate(new Vector3(0, 90, 0));
                     Destroy(playerAll.Inventory._activeSlot.gameObject);
-                    playerAll.Inventory._activeSlot = null;                    
+                    playerAll.Inventory._activeSlot = null;
+                }
+                else
+                {
+                    playerEvents.OnInteractNotEnoughItems.Invoke();
                 }
                 break;
             case ItemName.PlaceDynamite:
@@ -83,6 +94,10 @@ public class StorySystem : MonoBehaviour
                     spawnedDynamite.transform.localPosition = new Vector3(0f, 0f, 0.19f);
                     spawnedDynamite.transform.Rotate(new Vector3(0, 90, 0));
                     Destroy(spawnedGhostDynamite);
+                }
+                else
+                {
+                    playerEvents.OnInteractNotEnoughItems.Invoke();
                 }
                 break;
             case ItemName.Boom:
@@ -98,7 +113,7 @@ public class StorySystem : MonoBehaviour
                 }
                 else
                 {
-                    
+                    playerEvents.OnInteractNotEnoughItems.Invoke();
                 }
                 break;
             default:

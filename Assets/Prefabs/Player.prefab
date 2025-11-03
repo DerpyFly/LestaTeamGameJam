@@ -335,6 +335,7 @@ MonoBehaviour:
   _dropPoint: {fileID: 5868521411013877915}
   _activeSlotPoint: {fileID: 5155616903827839824}
   _backpack: {fileID: 0}
+  _storyItems: {fileID: 0}
   _activeSlot: {fileID: 0}
 --- !u!114 &4435914603204570819
 MonoBehaviour:
@@ -365,6 +366,7 @@ MonoBehaviour:
   _inventoryAction: {fileID: 3119905711464195796}
   storyItems: {fileID: 1865628410512190154}
   playerAll: {fileID: 4700646030366833182}
+  playerEvents: {fileID: 5805722713808195700}
   netPrefab: {fileID: 4048074011771160618, guid: 41228a7e80a97cb40870bf3326ff2fc1, type: 3}
   netOnPropeller: {fileID: 0}
   screwRotator1: {fileID: 0}
