@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject _activeSlotPoint;
     [SerializeField] private Backpack _backpack;
 
-    private Item _visibleItem;
+    public Item _visibleItem;
     private Item _activeSlot = null;
 
     private Keyboard _keyboard;
@@ -68,53 +68,68 @@ public class Inventory : MonoBehaviour
     {
         if (_visibleItem != null && _keyboard.eKey.wasPressedThisFrame)
         {
-            if (_visibleItem.TypeItem == TypeItem.GarbageItem)
-            {
-                PickUpGarbage?.Invoke(_visibleItem);
-                _visibleItem.SetPoint(-1);
-                _visibleItem = null;
+            Item currentItem = _visibleItem;  // ✅ Сохраняем ссылку
 
+            // ✅ ВСЕ проверки через currentItem, а не _visibleItem
+            if (currentItem != null && currentItem.TypeItem == TypeItem.GarbageItem)
+            {
+                PickUpGarbage?.Invoke(currentItem);
+                currentItem.SetPoint(-1);
+                Destroy(currentItem.gameObject);  // ✅ Явное уничтожение
+                _visibleItem = null;
                 return;
             }
 
-            if (_visibleItem.TypeItem == TypeItem.QuestItem)
+            if (currentItem != null && currentItem.TypeItem == TypeItem.QuestItem)
             {
-                OnInteractWithStoryObject?.Invoke(_visibleItem);
-                _visibleItem.SetPoint(-1);
+                OnInteractWithStoryObject?.Invoke(currentItem);
+                currentItem.SetPoint(-1);
                 _visibleItem = null;
-
                 return;
             }
 
-            if(_visibleItem.TypeItem == TypeItem.PriceItem)
+            if (currentItem != null && currentItem.TypeItem == TypeItem.PriceItem)
             {
-                if (_backpack.AddItem(_visibleItem))
+                if (_backpack.AddItem(currentItem))
                     _visibleItem = null;
             }
-            else if(_activeSlot == null && _visibleItem.TypeItem == TypeItem.ActiveItem)
+            else if (currentItem != null && _activeSlot == null && currentItem.TypeItem == TypeItem.ActiveItem)
             {
-                _activeSlot = _visibleItem;
-                _visibleItem.transform.SetParent(transform);
-                _visibleItem.SetPoint(-1);
-                _visibleItem.transform.position = _activeSlotPoint.transform.position;
+                _activeSlot = currentItem;
+                currentItem.transform.SetParent(transform);
+                currentItem.SetPoint(-1);
+                currentItem.transform.position = _activeSlotPoint.transform.position;
                 _visibleItem = null;
             }
         }
         else if (_keyboard.qKey.wasPressedThisFrame)
         {
-            if(_activeSlot != null)
+            if (_activeSlot != null)
             {
                 _activeSlot.transform.SetParent(null);
                 _activeSlot.DropPoint();
                 _activeSlot.transform.position = _dropPoint.transform.position;
                 _activeSlot = null;
-
                 return;
             }
 
-
             _backpack.DropItem();
         }
+    }
+
+    private void Update()
+    {
+        CleanupDestroyedItems();
+        InventoryAction();
+    }
+
+    private void CleanupDestroyedItems()
+    {
+        if (_visibleItem != null && _visibleItem.gameObject == null)
+            _visibleItem = null;
+
+        if (_activeSlot != null && _activeSlot.gameObject == null)
+            _activeSlot = null;
     }
 
     public int SellItem()
