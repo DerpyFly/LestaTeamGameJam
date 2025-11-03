@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Backpack _backpack;
 
     private Item _visibleItem;
-    private Item _activeSlot = null;
+    public Item _activeSlot = null;
 
     private Keyboard _keyboard;
     private StoryItems _storyItems;
@@ -97,6 +97,7 @@ public class Inventory : MonoBehaviour
                 _visibleItem.transform.SetParent(transform);
                 _visibleItem.SetPoint(-1);
                 _visibleItem.transform.position = _activeSlotPoint.transform.position;
+                _visibleItem.transform.rotation = _activeSlotPoint.transform.rotation;
                 _visibleItem = null;
             }
         }

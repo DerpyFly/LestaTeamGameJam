@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   _typeItem: 1
-  _itemName: 6
+  _itemName: 10
   _price: 0
 --- !u!135 &223048474909269586
 SphereCollider:

@@ -44,12 +44,15 @@ public class StorySystem : MonoBehaviour
         {
             case ItemName.Scissors:
                 storyItems.storyItems[0] = true;
+                Destroy(obj.gameObject);
                 break;
             case ItemName.Dynamite:
                 storyItems.storyItems[1] = true;
+                Destroy(obj.gameObject);
                 break;
             case ItemName.Lighter:
                 storyItems.storyItems[2] = true;
+                Destroy(obj.gameObject);
                 break;
             case ItemName.UseScissors:
                 if (storyItems.storyItems[0])
@@ -65,14 +68,20 @@ public class StorySystem : MonoBehaviour
                     screwRotator2.StopRotation();
                     boatWaypointMovement.enabled = false;
                     netOnPropeller.SetActive(true);
-                    // Instantiate(brokenPropellerPrefab, propellerTransformForNet);
+
                     spawnedGhostDynamite = Instantiate(dynamiteGhostPrefab, dynamiteSpawnTransform);
+                    spawnedGhostDynamite.transform.localPosition = new Vector3(0f, 0f, 0.19f);
+                    spawnedGhostDynamite.transform.Rotate(new Vector3(0, 90, 0));
+                    Destroy(playerAll.Inventory._activeSlot.gameObject);
+                    playerAll.Inventory._activeSlot = null;                    
                 }
                 break;
             case ItemName.PlaceDynamite:
                 if (storyItems.storyItems[1])
                 {
                     spawnedDynamite = Instantiate(dynamitePrefab, dynamiteSpawnTransform);
+                    spawnedDynamite.transform.localPosition = new Vector3(0f, 0f, 0.19f);
+                    spawnedDynamite.transform.Rotate(new Vector3(0, 90, 0));
                     Destroy(spawnedGhostDynamite);
                 }
                 break;
@@ -82,7 +91,10 @@ public class StorySystem : MonoBehaviour
                     // TODO: call dynamite explosion
                     Destroy(spawnedDynamite);
                     // TODO: make hole in boat
-                    bossBoat.GetComponent<Rigidbody>().useGravity = true;
+                    Rigidbody boatRB = bossBoat.GetComponent<Rigidbody>();
+                    boatRB.useGravity = true;
+                    boatRB.freezeRotation = false;
+                    boatRB.constraints = RigidbodyConstraints.None;
                 }
                 else
                 {

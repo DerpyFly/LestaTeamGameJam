@@ -335,6 +335,7 @@ MonoBehaviour:
   _dropPoint: {fileID: 5868521411013877915}
   _activeSlotPoint: {fileID: 5155616903827839824}
   _backpack: {fileID: 0}
+  _activeSlot: {fileID: 0}
 --- !u!114 &4435914603204570819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,9 +370,9 @@ MonoBehaviour:
   screwRotator1: {fileID: 0}
   screwRotator2: {fileID: 0}
   boatWaypointMovement: {fileID: 0}
-  dynamiteGhostPrefab: {fileID: 2082379330452997175, guid: 133b423270cfe144aaad846a80d53f4a, type: 3}
+  dynamiteGhostPrefab: {fileID: 9008571005984880871, guid: f0774281b42b57c40834b2923322b124, type: 3}
   dynamiteSpawnTransform: {fileID: 0}
-  dynamitePrefab: {fileID: 6501379425847512565, guid: 0a39c7e16bec52d4c93f0db4de648756, type: 3}
+  dynamitePrefab: {fileID: 9008571005984880871, guid: b1476282150ae5447bb58d6119db213a, type: 3}
   bossBoat: {fileID: 0}
 --- !u!1 &3104805834494312082
 GameObject:
@@ -429,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 5155616903827839824}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0018999577, y: -0.06129998, z: 0.575}
+  m_LocalPosition: {x: 0.0018999577, y: -0.06129998, z: 0.599}
   m_LocalScale: {x: 0.32825, y: 0.32825, z: 0.32825}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -459,7 +460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5868521411013877915}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0019, y: -0.0613, z: 1.001}
   m_LocalScale: {x: 0.32825, y: 0.32825, z: 0.32825}
   m_ConstrainProportionsScale: 0
