@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private Camera startCam;
     [SerializeField] private Camera gameCam;
     [SerializeField] private CinemachineCamera _cam;
+
+    [SerializeField] private GameObject _MenuUi;
 
     [SerializeField] private GameObject SpawnPoint;
 
@@ -54,6 +57,13 @@ public class Movement : MonoBehaviour
     {
         startCam.gameObject.SetActive(false);
         gameCam.gameObject.SetActive(true);
+        StartCoroutine(closeMenu());
+    }
+
+    private IEnumerator closeMenu()
+    {
+        yield return new WaitForSeconds(2);
+        _MenuUi.SetActive(false);
     }
 
     void FixedUpdate()
