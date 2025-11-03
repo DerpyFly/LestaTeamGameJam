@@ -8,7 +8,6 @@ public class WindowManager : MonoBehaviour
     [SerializeField] private GameObject _showBtnHintUI;
     [SerializeField] private GameObject _showMissingItemtUI;
 
-
     private IInteractable _lastInteractable;
     private PlayerEvents playerEvents;
 
@@ -38,6 +37,10 @@ public class WindowManager : MonoBehaviour
 
         _lastInteractable = interactable;
         _shopUI.ViewInventory(player, interactable);
+
+        BtnHintUiDisable();
+        
+        MissingItemtUiDisable();
         //UI enable;
     }
 
@@ -61,6 +64,25 @@ public class WindowManager : MonoBehaviour
         _miniGameUI.gameObject.SetActive(true);
 
         _shopUI.gameObject.SetActive(false);
+
+        BtnHintUiDisable();
+
+        MissingItemtUiDisable();
+    }
+    
+    public void MinigameUiDisable()
+    {
+        //_lastInteractable.EndInteractable();
+
+        _bankUI.gameObject.SetActive(true);
+
+        _miniGameUI.gameObject.SetActive(false);
+
+        _shopUI.gameObject.SetActive(false);
+
+        BtnHintUiDisable();
+
+        MissingItemtUiDisable();
     }
 
     public void HudUiEnable()
