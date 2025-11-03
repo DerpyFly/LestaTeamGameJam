@@ -72,6 +72,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d6a358dc91bca9d4588694f1ff197483, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2310966862677360630}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d6a358dc91bca9d4588694f1ff197483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7216214607153903931}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d6a358dc91bca9d4588694f1ff197483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5913411471035822925}
   m_SourcePrefab: {fileID: 100100000, guid: d6a358dc91bca9d4588694f1ff197483, type: 3}
 --- !u!1 &6589423832651522485 stripped
 GameObject:
@@ -201,7 +207,45 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.35444757
   m_Center: {x: 0.000023274835, y: -0.033128865, z: 0.03558095}
+--- !u!136 &7216214607153903931
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589423832651522485}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35444757
+  m_Height: 0.14613032
+  m_Direction: 1
+  m_Center: {x: 0.000023274835, y: -0.033128865, z: 0.03558095}
+--- !u!114 &5913411471035822925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589423832651522485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959079460241afe4b9dc38eb38f92ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  _typeItem: 2
+  _itemName: 0
+  _price: 0

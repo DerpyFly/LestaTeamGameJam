@@ -7,11 +7,11 @@ public class GetCollectableStar : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Player"))
-        {
-            CollectablesGame game = other.GetComponent<CollectablesGame>();
-            game.addItem();
-            Destroy(gameObject);
-        }
+        //if (other.CompareTag("Player"))
+        //{
+        //    CollectablesGame game = other.GetComponent<CollectablesGame>();
+        //    game.addItem();
+        //    Destroy(gameObject);
+        //}
     }
 }

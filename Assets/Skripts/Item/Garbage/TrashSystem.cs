@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class TrashSystem : MonoBehaviour
 {
+    [SerializeField] private GameObject spawnObject;
     [SerializeField] private Inventory _inventoryAction;
 
     public int CountTrash {  get; private set; }
@@ -30,5 +31,10 @@ public class TrashSystem : MonoBehaviour
         CountTrash++;
 
         ChangeTrashCount?.Invoke(CountTrash);
+
+        if (CountTrash >= 7)
+        {
+            spawnObject.SetActive(true);
+        }
     }
 }

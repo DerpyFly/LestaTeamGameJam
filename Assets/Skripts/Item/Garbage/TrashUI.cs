@@ -23,7 +23,7 @@ public class TrashUI : MonoBehaviour
     {
         if (_trashSystem == null)
             Debug.LogError("TrashSystem is NULL!");
-
+        
         if (_textCountTrash == null)
             Debug.LogError("Text is NULL!");
     }
@@ -33,6 +33,6 @@ public class TrashUI : MonoBehaviour
         if (_textCountTrash.enabled == false)
             _textCountTrash.enabled = true;
 
-        _textCountTrash.text = _textNameLine + newCount.ToString();
+        _textCountTrash.text = _textNameLine + newCount.ToString() + " из 7";
     }
 }

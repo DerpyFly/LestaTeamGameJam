@@ -1,5 +1,4 @@
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 public class Item : MonoBehaviour
 {
@@ -42,8 +41,13 @@ public class Item : MonoBehaviour
     {
         _isFree = false;
         _collider.enabled = false;
-        _rb.isKinematic = true;
-        _rb.constraints = RigidbodyConstraints.FreezePositionY;
+
+        if(_rb != null)
+        {
+            _rb.isKinematic = true;
+            _rb.constraints = RigidbodyConstraints.FreezePositionY;
+        }
+
         _id = id;
     }
 
@@ -51,7 +55,10 @@ public class Item : MonoBehaviour
     {
         _isFree = true;
         transform.SetParent(null);
-        _rb.isKinematic = false;
+
+        if (_rb != null)
+            _rb.isKinematic = false;
+
         _collider.enabled = true;
         _rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
         return _id;

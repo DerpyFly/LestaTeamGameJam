@@ -5576,6 +5576,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1784066574, guid: 9961d8353c5240e4082bd110b038a175, type: 3}
     - target: {fileID: 2557466169094808943, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557466169094808943, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _inventoryAction
       value: 
       objectReference: {fileID: 1523437057}
@@ -5674,6 +5678,14 @@ PrefabInstance:
     - target: {fileID: 6630096734227835897, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054234276573867221, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _trashSystem
+      value: 
+      objectReference: {fileID: 1634668934}
+    - target: {fileID: 9054234276573867221, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _textNameLine
+      value: "\u0421\u043E\u0431\u0440\u0430\u043D\u043D\u043E \u0437\u0432\u0435\u0437\u0434: "
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11070,6 +11082,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1465614754881204343, guid: 940b78c3c645e7b4aa37b5b84c838369, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4717664577552138179, guid: 940b78c3c645e7b4aa37b5b84c838369, type: 3}
       propertyPath: m_Name
       value: collectable_can
@@ -11686,6 +11702,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5660541453802816962, guid: a725172beb3984044b98a3a4b8ec2990, type: 3}
+      propertyPath: _inventoryAction
+      value: 
+      objectReference: {fileID: 1523437057}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14929,6 +14949,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 553410071880638921, guid: 2e468314f534320429e4de6b40f0f331, type: 3}
   m_PrefabInstance: {fileID: 1633255149}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1634668934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5660541453802816962, guid: a725172beb3984044b98a3a4b8ec2990, type: 3}
+  m_PrefabInstance: {fileID: 1265150270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7253086ee5f0bb94199edebbc55cd360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashSystem
 --- !u!1001 &1655496411
 PrefabInstance:
   m_ObjectHideFlags: 0
