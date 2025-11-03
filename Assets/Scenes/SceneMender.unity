@@ -2711,6 +2711,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496fc5607a098914086655229e3baf5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ovement
+--- !u!114 &245831004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5805722713808195700, guid: 2f276c681b1675d478d3f08ee5c67955, type: 3}
+  m_PrefabInstance: {fileID: 245831002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783c643f82036c8409c6edbf2c9cc9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerEvents
 --- !u!1001 &248807482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7332,6 +7343,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6425944322090414779, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
+      propertyPath: _playerEvents
+      value: 
+      objectReference: {fileID: 245831004}
     - target: {fileID: 6578073028422140885, guid: 1ac267d41bc53f54b9c59e14deb36c51, type: 3}
       propertyPath: _bank
       value: 
@@ -25455,5 +25470,5 @@ SceneRoots:
   - {fileID: 1669243604}
   - {fileID: 9021405065212702170}
   - {fileID: 2232843885307853471}
-  - {fileID: 177189145}
   - {fileID: 286154586}
+  - {fileID: 1837550957}
